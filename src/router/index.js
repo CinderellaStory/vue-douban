@@ -49,7 +49,7 @@ export default new Router({
       },
       {
         path: '/MovieDetail/:userId',
-        name: MovieDetail,
+        name: 'MovieDetail',
         component: MovieDetail
       } 
   ]

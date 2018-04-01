@@ -22,7 +22,7 @@ export default {
         },
         created(){
         const _this = this;
-        this.axios({method:'get',url: '/api/movie/in_theaters?&count=8'})
+        this.axios({method:'get',url: '/api/movie/in_theaters'})
         .then(response =>{
             _this.subjects =response.data.subjects
           console.log(response.data.subjects);
