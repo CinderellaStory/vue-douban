@@ -1,23 +1,25 @@
 <template>
   <div class="hello">
-    <h1>这是首页</h1>
-    <NavBottom></NavBottom>
+    <NavBar></NavBar>
+     <div class="content">
+       <h1>这是首页</h1>
+     </div>
   </div>
 </template>
 
 <script>
-import NavBottom from './NavBottom.vue'
+import NavBar from './NavBar.vue'
 
 export default {
   components:{
-    NavBottom
+    NavBar
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1, h2,h3 {
   font-weight: normal;
 }
 ul {

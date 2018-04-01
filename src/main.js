@@ -6,8 +6,12 @@ import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueLazyLoad from 'vue-lazyload'
+import VueJsonp from 'vue-jsonp'
+Vue.use(VueJsonp)
 
 Vue.use(VueAxios, axios)
+
+//懒加载
 Vue.use(VueLazyLoad,{
   error:'./static/error.png',
   loading:'./static/loading.gif'

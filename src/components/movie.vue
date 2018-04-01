@@ -1,20 +1,15 @@
 <template>
     <div class="movie">
-            <h3>{{inTheaters}}</h3>
-            <div class="MovieList">
-                <router-link v-for="(items,index) in subjects" :to="items.alt" :key="index">
-                    <img v-lazy="items.images.medium" alt="">
-                    <div class="MovieText">{{items.title}}</div>
-                </router-link>
-            </div>
-             <h3>{{inTheaters}}</h3>
-            <div class="MovieList">
-                <router-link v-for="(items,index) in subjects" :to="items.alt" :key="index">
-                    <img v-lazy="items.images.medium" alt="">
-                    <div class="MovieText">{{items.title}}</div>
-                </router-link>
-            </div>
-             <h3>{{inTheaters}}</h3>
+        <NavBar></NavBar>
+         <div class="content">
+             <div class="CategoryTitle">
+                <div class="CinemaHot">{{inTheaters}}</div>
+                <!-- <router-link :to="{name: '/movie/Default'}">默认内容</router-link> -->
+                <!-- <router-link :to="{name:'CinemaMore'}">更多</router-link> -->
+                <router-link to="CinemaMore/rose">更多</router-link>
+                <button @click="MoreBtn">更多</button>
+                <!-- <a href=""></a> -->
+             </div>
             <div class="MovieList">
                 <router-link v-for="(items,index) in subjects" :to="items.alt" :key="index">
                     <img v-lazy="items.images.medium" alt="">
@@ -35,11 +30,11 @@
                     <div class="MovieText">{{items.text}}</div>
                 </router-link>
             </div> -->
-        <NavBottom></NavBottom>
+        </div>        
     </div>        
 </template>
 <script>
-import NavBottom from './NavBottom.vue'
+import NavBar from './NavBar.vue'
 
 export default {
     data(){
@@ -50,15 +45,21 @@ export default {
             subjects:[]
         }
     },
+    methods:{
+        MoreBtn:function(){
+        this.$router.push({ path: 'CinemaMore' })
+        }
+    },
     created(){
         const _this = this;
-        this.axios({method:'get',url: '/api/movie/in_theaters'})
+        this.axios({method:'get',url: '/api/movie/in_theaters?&count=8'})
         .then(response =>{
             _this.subjects =response.data.subjects
+          console.log(response.data.subjects);
         })
     },
   components:{
-    NavBottom
+    NavBar
   }
 }
 </script>
@@ -71,10 +72,22 @@ img{
     height: 142px;
     display: inline-block
 }
+.CategoryTitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    .CinemaHot{
+        font-size: 16px;
+    }
+    a{
+        color: #42bd56;
+    }
+}
 .MovieList{
     display: flex;
     overflow-x: auto;
-    padding: 15px 0 20px 0;
+    padding: 15px 0 20px 10px;
     a{
         flex: 1;
         text-align: center;
