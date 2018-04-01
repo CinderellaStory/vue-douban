@@ -5,9 +5,9 @@ import books from '@/components/books'
 import my from '@/components/my'
 import movie from '@/components/movie'
 import CinemaMore from '@/components/CinemaMore'
-import Default from '@/components/Default'
 import rose from '@/components/rose'
 import prince from '@/components/prince'
+import MovieDetail from '@/components/MovieDetail'
 
 Vue.use(Router)
 
@@ -46,6 +46,11 @@ export default new Router({
           component: rose  
         }
       ]
-      }      
+      },
+      {
+        path: '/MovieDetail/:userId',
+        name: MovieDetail,
+        component: MovieDetail
+      } 
   ]
 })

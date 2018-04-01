@@ -1,3 +1,4 @@
+// 即将上映
 <template>
   <div class="MovieList">
         <router-link v-for="(items,index) in subjects" :to="items.alt" :key="index" tag="li">
@@ -22,22 +23,16 @@ export default {
   data(){
       return{
           DetailBtn:'详情',
-          subjects:[],
-          currentTab: 'prince'
+          subjects:[]
          }
       },
       components: { // 声明子组件  是刚才那样 已经出了来  你看下怎么取索引的 看下数组和对象的区别  加油~
         prince,
         rose
         },
-         methods: {
-            toggleTab: function(tab) {
-            this.currentTab = tab; // tab 为当前触发标签页的组件名  好等一下
-            }
-            },
       created(){
         const _this = this;
-        this.axios({method:'get',url: '/api/movie/coming_soon'})
+        this.axios({method:'get',url: '/api/movie/coming_soon?&count=8'})
         .then(response =>{
             _this.subjects =response.data.subjects
           console.log(response.data.subjects);

@@ -1,17 +1,21 @@
+// 正在热映
 <template>
   <div class="MovieList">
-        <router-link v-for="(items,index) in subjects" :to="items.alt" :key="index" tag="li">
+      <ul>
+        <li v-for="(items,index) in subjects" :to="items.alt" :key="index">
             <img v-lazy="items.images.medium" alt="">
-                  <div class="MovieText">
-                      <div class="MovieTitle">{{items.title}}</div>
-                      <div class="director">
-                          <p>导演：{{items.directors[0].name}}</p>
-                          <p>演员：<span v-for="(i,o) in items.casts" :key="o">{{items.casts[o].name}}/</span></p>
-                      </div>                   </div>
-                  <div class="DetailBtn">
-                      <a href="">{{DetailBtn}}</a>
-                  </div>
-        </router-link>
+            <div class="MovieText">
+                <div class="MovieTitle">{{items.title}}</div>
+                <div class="director">
+                    <p>导演：{{items.directors[0].name}}</p>
+                    <p>演员：<span v-for="(i,o) in items.casts" :key="o">{{items.casts[o].name}}/</span></p>
+                </div>                
+            </div>
+            <div class="DetailBtn">
+                <router-link :to="{name:'MovieDetail',params:{userId:items.id}}">{{DetailBtn}}</router-link>
+            </div>
+        </li>
+        </ul>
     </div>
 </template>
 <script>
@@ -23,24 +27,17 @@ export default {
       return{
           DetailBtn:'详情',
           subjects:[],
-          currentTab: 'prince'
          }
       },
       components: { // 声明子组件  是刚才那样 已经出了来  你看下怎么取索引的 看下数组和对象的区别  加油~
         prince,
         rose
         },
-         methods: {
-            toggleTab: function(tab) {
-            this.currentTab = tab; // tab 为当前触发标签页的组件名  好等一下
-            }
-            },
       created(){
         const _this = this;
-        this.axios({method:'get',url: '/api/movie/in_theaters'})
+        this.axios({method:'get',url: '/api/movie/in_theaters?&count=8'})
         .then(response =>{
             _this.subjects =response.data.subjects
-          console.log(response.data.subjects);
         })
   }
 }
