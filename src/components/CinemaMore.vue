@@ -1,6 +1,5 @@
 <template>
   <div class="MovieList">
-        <NavBar></NavBar>
         <div class="tabs">
             <router-link to="/CinemaMore/prince">正在热映</router-link>
             <router-link to="/CinemaMore/rose">即将上映</router-link>
@@ -11,11 +10,9 @@
     </div>
 </template>
 <script>
-import NavBar from './NavBar.vue'
 
 export default {
   components:{
-    NavBar
   }
 }
 </script>

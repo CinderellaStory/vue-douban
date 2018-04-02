@@ -1,8 +1,8 @@
 <template>
   <div class="footer">
     <ul>
-      <router-link v-for="item in NavData" :to="item.to" tag="li">
-            <p :class="item.class">{{item.text}}</p>
+      <router-link :class="item.class" v-for="item in NavData" :to="item.to" tag="li">
+            {{item.text}}
       </router-link>
     </ul>
   </div>
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-  .router-link-exact-active p{color: red !important; font-weight: bold}
+  .router-link-exact-active{color: red !important; font-weight: bold}
   .footer {
     height: 50px;
   ul{

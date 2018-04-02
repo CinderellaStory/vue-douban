@@ -1,6 +1,6 @@
 <template>
   <div class="">
-      <h1>我是书籍页面</h1>
+      <h1>我是电视页面</h1>
   </div>
 </template>
 <script>
