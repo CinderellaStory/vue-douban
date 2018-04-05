@@ -1,8 +1,9 @@
+// 免费观看
 <template>
-  <div class="Theater">
+  <div class="ComingSoon">
        <div class="CategoryTitle">
-            <div class="CinemaHot">{{inTheaters}}</div>
-            <router-link to="CinemaMore/prince">更多</router-link>
+            <div class="CinemaHot">{{ComingSoon}}</div>
+            <router-link to="CinemaMore/rose">更多</router-link>
         </div>
         <div class="MovieList">
             <router-link v-for="(items,index) in subjects" :to="items.alt" :key="index">
@@ -12,36 +13,27 @@
         </div>
   </div>
 </template>
-<script>
+<script> 
 export default {
         data(){
             return{
-            inTheaters:'影院热线',
+            ComingSoon:'免费观看',
             subjects:[]
             }
         },
         created(){
         const _this = this;
-        this.axios({method:'get',url: '/api/movie/in_theaters'})
-        .then(response =>{
-            _this.subjects =response.data.subjects
-          console.log(response.data.subjects);
+        this.$jsonp('https://api.douban.com//v2/movie/coming_soon?&count=8')
+        .then(json =>{
+            _this.subjects =json.subjects
         })
     }
 }
 </script>
 
-<style scpoed lang="less">
-a{
-    text-decoration: none;
-}
-img{
-    width: 100px;
-    height: 142px;
-    display: inline-block
-}
-.Theater{
-.CategoryTitle{
+<style scoped lang="less">
+.ComingSoon{
+    .CategoryTitle{
     display: flex;
     justify-content: space-between;
     align-items: center;

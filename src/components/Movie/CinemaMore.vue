@@ -2,21 +2,14 @@
   <div class="MovieList">
         <div class="tabs">
             <router-link to="/CinemaMore/prince">正在热映</router-link>
-            <router-link to="/CinemaMore/rose">即将上映</router-link>
-        </div>
+            <router-link to="/CinemaMore/fox">即将上映</router-link>
+            <router-link to="/CinemaMore/rose">免费观看2</router-link>
+        </div>  
         <div>
             <router-view></router-view>
         </div>
     </div>
 </template>
-<script>
-
-export default {
-  components:{
-  }
-}
-</script>
-
 <style scoped lang="less">
 a{
     text-decoration: none;
@@ -57,7 +50,7 @@ a{
 .MovieList{
     a{
         display: flex;
-    padding: 15px 10px;
+    padding: 15px 20px;
     border-bottom: 1px solid #e4e4e4;
         .DetailBtn{
         flex: 1;

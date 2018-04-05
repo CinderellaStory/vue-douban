@@ -1,8 +1,9 @@
+// 新片速递
 <template>
   <div class="ComingSoon">
        <div class="CategoryTitle">
-            <div class="CinemaHot">{{ComingSoon}}</div>
-            <router-link to="CinemaMore/rose">更多</router-link>
+            <div class="CinemaHot">{{top250}}</div>
+            <router-link to="CinemaMore/fox">更多</router-link>
         </div>
         <div class="MovieList">
             <router-link v-for="(items,index) in subjects" :to="items.alt" :key="index">
@@ -16,16 +17,15 @@
 export default {
         data(){
             return{
-            ComingSoon:'即将上映',
+            top250:'新片速递',
             subjects:[]
             }
         },
         created(){
         const _this = this;
-        this.axios({method:'get',url: '/api/movie/coming_soon?&count=8'})
-        .then(response =>{
-            _this.subjects =response.data.subjects
-          console.log(response.data.subjects);
+        this.$jsonp('https://api.douban.com/v2/movie/top250?&count=8')
+        .then(json =>{
+            _this.subjects =json.subjects
         })
     }
 }

@@ -1,18 +1,20 @@
 <template>
-  <div class="hello">
-    <NavBar></NavBar>
+  <div class="Home">
      <div class="content">
-       <h1>这是首页</h1>
+       <!-- <h1>这是首页</h1> -->
+       <HomeSubnav></HomeSubnav>
+       <HomeList></HomeList>
      </div>
   </div>
 </template>
 
 <script>
-import NavBar from './NavBar.vue'
+import HomeSubnav from './HomeSubnav.vue'
+import HomeList from './HomeList.vue'
 
 export default {
   components:{
-    NavBar
+    HomeSubnav,HomeList
   }
 }
 </script>
@@ -28,3 +30,9 @@ ul {
 }
 
 </style>
+<style>
+.Home{
+  background:#fff;
+}
+</style>
+

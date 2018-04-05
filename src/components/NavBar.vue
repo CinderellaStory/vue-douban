@@ -28,7 +28,7 @@ export default {
           class:'movieText'
 				},
 				{
-					to:'/my',
+					to:'/Mine',
           text:'我的',
           class:'myText'
         }

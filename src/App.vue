@@ -19,7 +19,10 @@ export default {
 <style lang="less">
 *{padding: 0;margin: 0;}
 body,div{font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;}
-.content{padding:10px 10px 0 20px; }
+.content{padding:10px 10px 0 10px; }
+h3{
+  font-weight: normal
+}
 body{
   background: #f7f7f7;
 }

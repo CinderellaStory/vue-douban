@@ -2,22 +2,28 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import home from '@/components/home'
 import books from '@/components/books'
-import my from '@/components/my'
+import BookMore from '@/components/Book/BookMore'
+import hotfiction from '@/components/Book/hotfiction'
+import hotnonfiction from '@/components/Book/hotnonfiction'
+import BookFiction from '@/components/Book/BookFiction'
+import BookNonfiction from '@/components/Book/BookNonfiction'
+import Mine from '@/components/Mine'
 import movie from '@/components/movie'
-import CinemaMore from '@/components/CinemaMore'
-import rose from '@/components/rose'
-import prince from '@/components/prince'
-import MovieDetail from '@/components/MovieDetail'
-import fllowed from '@/components/fllowed'
-import fllower from '@/components/fllower'
-import HomePage from '@/components/HomePage'
-import likes from '@/components/likes'
-import notes from '@/components/notes'
-import photos from '@/components/photos'
-import status from '@/components/status'
-import movies from '@/components/movies'
-import musics from '@/components/musics'
-// import books from '@/components/books'
+import CinemaMore from '@/components/Movie/CinemaMore'
+import rose from '@/components/Movie/rose'
+import fox from '@/components/Movie/fox'
+import prince from '@/components/Movie/prince'
+import MovieDetail from '@/components/Movie/MovieDetail'
+import fllowed from '@/components/Mine/fllowed'
+import fllower from '@/components/Mine/fllower'
+import HomePage from '@/components/Mine/HomePage'
+import MyLikes from '@/components/Mine/MyLikes'
+import MyNotes from '@/components/Mine/MyNotes'
+import MyPhotos from '@/components/Mine/MyPhotos'
+import MyStatus from '@/components/Mine/MyStatus'
+import MyMovies from '@/components/Mine/MyMovies'
+import MyMusics from '@/components/Mine/MyMusics'
+import MyBooks from '@/components/Mine/MyBooks'
 
 
 Vue.use(Router)
@@ -29,89 +35,115 @@ export default new Router({
       component: home
     },
     {
+      path: '/home',
+      component: home
+    },
+    {
       path: '/books',
       component: books
     },
     {
-      path: '/my',
-      component: my
+      path: '/Mine',
+      component: Mine
     },
     {
       path: '/movie',
       component: movie
     },
-      {
-        path: '/CinemaMore',
-        component:CinemaMore,
-        children:[
-          {  
-            path: '/',  
-            component: rose  
-          },
-        {
-          path: 'prince',
-          component:prince
-        },
+    {
+      path: '/BookMore',
+      component:BookMore,
+      children:[
         {  
-          path: 'rose',  
-          component: rose  
-        }
-      ]
-      },
+          path: '/',  
+          component: BookNonfiction  
+        },
       {
-        path: '/MovieDetail/:userId',
-        name: 'MovieDetail',
-        component: MovieDetail
+        path: 'BookNonfiction',
+        component:BookNonfiction
       },
-      {
-        path:'my/fllowed',
-        component:fllowed,
-        name:'fllowed'
-       },
-       {
-        path:'my/fllower',
-        component:fllower,
-        name:'fllower'
-      },
-      {
-        path:'my/HomePage',
-        component:HomePage,
-        name:'HomePage'
-      },
-      {
-        path:'/my/photos',
-        component:photos,
-        name:'photos'
-      },
-      {
-        path:'/my/likes',
-        component:likes,
-        name:'likes'
-      },
-      {
-        path:'/my/notes',
-        component:notes,
-        name:'notes'
-      },
-      {
-        path:'/my/books',
-        component:books,
-        name:'books'
-      },
-      {
-        path:'/my/status',
-        component:status,
-        name:'status'
-      },
-      {
-        path:'/my/movies',
-        component:movies,
-        name:'movies'
-      },
-      {
-        path:'/my/musics',
-        component:musics,
-        name:'musics'
+      {  
+        path: 'BookFiction',  
+        component: BookFiction  
       }
+    ]
+    },
+    {
+      path: '/CinemaMore',
+      component:CinemaMore,
+      children:[
+        {  
+          path: '/',  
+          component: rose  
+        },
+      {
+        path: 'prince',
+        component:prince
+      },
+      {  
+        path: 'rose',  
+        component: rose  
+      },
+      {  
+        path: 'fox',  
+        component: fox  
+      }
+    ]
+    },
+    {
+      path: '/Movie/MovieDetail/:userId',
+      name: 'MovieDetail',
+      component: MovieDetail
+    },
+    {
+      path:'/Mine/fllowed',
+      component:fllowed,
+      name:'fllowed'
+      },
+      {
+      path:'/Mine/fllower',
+      component:fllower,
+      name:'fllower'
+    },
+    {
+      path:'/Mine/HomePage',
+      component:HomePage,
+      name:'HomePage'
+    },
+    {
+      path:'/Mine/MyPhotos',
+      component:MyPhotos,
+      name:'MyPhotos'
+    },
+    {
+      path:'/Mine/MyLikes',
+      component:MyLikes,
+      name:'MyLikes'
+    },
+    {
+      path:'/Mine/MyNotes',
+      component:MyNotes,
+      name:'MyNotes'
+    },
+    {
+      path:'/Mine/MyBooks',
+      component:MyBooks,
+      name:'MyBooks'
+    },
+    {
+      path:'/Mine/MyStatus',
+      component:MyStatus,
+      name:'MyStatus'
+    },
+    {
+      path:'/Mine/MyMovies',
+      component:MyMovies,
+      name:'MyMovies'
+    },
+    {
+      path:'/Mine/MyMusics',
+      component:MyMusics,
+      name:'MyMusics'
+    }
   ]
 })

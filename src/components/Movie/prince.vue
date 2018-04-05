@@ -1,41 +1,36 @@
-// 即将上映
+// 正在热映  更多数据
 <template>
   <div class="MovieList">
-        <router-link v-for="(items,index) in subjects" :to="items.alt" :key="index" tag="li">
+      <ul>
+        <li v-for="(items,index) in subjects" :to="items.alt" :key="index">
             <img v-lazy="items.images.medium" alt="">
-                  <div class="MovieText">
-                      <div class="MovieTitle">{{items.title}}</div>
-                      <div class="director">
-                          <p>导演：{{items.directors[0].name}}</p>
-                          <p>演员：<span v-for="(i,o) in items.casts" :key="o">{{items.casts[o].name}}/</span></p>
-                      </div>                   </div>
-                  <div class="DetailBtn">
-                      <a href="">{{DetailBtn}}</a>
-                  </div>
-        </router-link>
+            <div class="MovieText">
+                <div class="MovieTitle">{{items.title}}</div>
+                <div class="director">
+                    <p>导演：{{items.directors[0].name}}</p>
+                    <p>演员：<span v-for="(i,o) in items.casts" :key="o">{{items.casts[o].name}}/</span></p>
+                </div>                
+            </div>
+            <div class="DetailBtn">
+                <router-link :to="{name:'MovieDetail',params:{userId:items.id}}">{{DetailBtn}}</router-link>
+            </div>
+        </li>
+        </ul>
     </div>
 </template>
 <script>
-import prince from './prince';
-import rose from './rose';
-
 export default {
   data(){
       return{
           DetailBtn:'详情',
-          subjects:[]
+          subjects:[],
          }
       },
-      components: { // 声明子组件  是刚才那样 已经出了来  你看下怎么取索引的 看下数组和对象的区别  加油~
-        prince,
-        rose
-        },
       created(){
         const _this = this;
-        this.axios({method:'get',url: '/api/movie/coming_soon?&count=8'})
-        .then(response =>{
-            _this.subjects =response.data.subjects
-          console.log(response.data.subjects);
+        this.$jsonp('https://api.douban.com/v2/movie/in_theaters')
+        .then(json =>{
+            _this.subjects =json.subjects
         })
   }
 }
@@ -46,9 +41,8 @@ a{
     text-decoration: none;
 }
 img{
-    width: 80px;
-    height: 120px;
-    display: inline-block
+    width: 100px;
+    height: 140px;
 }
 .CategoryTitle{
     justify-content: space-between;
@@ -65,7 +59,7 @@ img{
 .MovieList{
     li{
         display: flex;
-    padding: 15px 10px;
+    padding: 15px 14px;
     border-bottom: 1px solid #e4e4e4;
         .DetailBtn{
         display: flex;
@@ -78,8 +72,6 @@ img{
             width: 60px;
          line-height: 30px;
          height: 30px;
-        // display: block;
-        // margin-right: 0.48rem;
         color: #117ae6;
         }
         }
@@ -91,6 +83,7 @@ img{
         .MovieTitle{
         font-size: 17px;
         color: #333;
+        font-weight: bold
         }
         .director{
             margin-top: 10px;
