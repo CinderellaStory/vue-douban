@@ -1,7 +1,6 @@
 <template>
   <div class="Home">
      <div class="content">
-       <!-- <h1>这是首页</h1> -->
        <HomeSubnav></HomeSubnav>
        <HomeList></HomeList>
      </div>
@@ -9,8 +8,8 @@
 </template>
 
 <script>
-import HomeSubnav from './HomeSubnav.vue'
-import HomeList from './HomeList.vue'
+import HomeSubnav from './Home/HomeSubnav.vue'
+import HomeList from './Home/HomeList.vue'
 
 export default {
   components:{

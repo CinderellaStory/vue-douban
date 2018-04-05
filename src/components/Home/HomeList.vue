@@ -7,7 +7,7 @@
               <div class="author">{{items.category_name}}</div>
           </div>
           <div class="ArticleDetail fl">
-              <img :src="items.image_hlarge" alt="">
+              <img  v-lazy="items.image_hlarge" alt="">
               <p>来自栏目 {{items.subcategory_name}}</p>
           </div>
       </router-link>

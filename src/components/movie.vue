@@ -14,7 +14,7 @@
 import ComingSoon from './Movie/ComingSoon.vue'
 import Theater from './Movie/Theater.vue'
 import Latest from './Movie/Latest.vue'
-
+ 
 export default {
   components:{
     Theater,ComingSoon,Latest

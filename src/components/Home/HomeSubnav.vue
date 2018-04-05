@@ -23,7 +23,7 @@ export default {
                   to:'BookMore/BookFiction'
               },
               {
-                  text:'虚构类',
+                  text:'非虚构类',
                   to:'BookMore/BookNonfiction'
               }
           ]
