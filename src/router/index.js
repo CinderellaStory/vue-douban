@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Login from '@/components/login'
+import Register from '@/components/Register'
+import RecoverPassword from '@/components/RecoverPassword'
 import home from '@/components/home'
 import books from '@/components/books'
 import BookMore from '@/components/Book/BookMore'
@@ -35,8 +38,20 @@ export default new Router({
       component: home
     },
     {
-      path: '/home',
-      component: home
+      path: '/Login',
+      component: Login
+    },
+    {
+      path: '/Login',
+      component: Login
+    },
+    {
+      path: '/Register',
+      component: Register
+    },
+    {
+      path: '/RecoverPassword',
+      component: RecoverPassword
     },
     {
       path: '/books',

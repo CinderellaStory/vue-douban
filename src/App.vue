@@ -17,6 +17,8 @@ export default {
 </script>
 
 <style lang="less">
+html{
+}
 *{padding: 0;margin: 0;}
 body,div{font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;}
 .content{padding:10px 10px 0 10px; }
@@ -24,7 +26,10 @@ h3{
   font-weight: normal
 }
 body{
-  background: #f7f7f7;
+  background: #fff;
+  display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 a{
   text-decoration: none;

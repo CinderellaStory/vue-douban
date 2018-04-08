@@ -11,8 +11,8 @@ export default {
       return{
           items:[
               {
-                  text:'正在上映',
-                  to:'CinemaMore/prince'
+                  text:'登录',
+                  to:'/login'
               },
               {
                   text:'即将上映',
