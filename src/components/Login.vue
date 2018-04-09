@@ -5,18 +5,17 @@
         <form action="" method="get">
             <div class="LoginInfo">
                 <label for="">
-                    <input type="text" placeholder="邮箱 / 手机号 / 用户名">
+                    <input type="text" v-model="LoginInfo.LoginName" placeholder="邮箱 / 手机号 / 用户名">
                 </label>
                 <label for="">
-                    <input type="text" placeholder="请输入密码">
+                    <input type="text" v-model="LoginInfo.LoginPwd" placeholder="请输入密码">
                 </label>
             </div>
-            <button class="SubmitBtn" type="submit">登录</button>
+            <button class="SubmitBtn" type="submit" @click="login">登录</button>
         </form>
         <div class="Wrapper">
             <router-link to="Register">注册豆瓣</router-link>
             |
-            <!-- <a href="" class="RecoverPassword">找回密码</a> -->
             <router-link to="RecoverPassword">找回密码</router-link>
         </div>
         <div class="LoginFooter">
@@ -30,39 +29,44 @@
   </div>
 </template>
 <script>
+import {default as data} from '../store/user.js'
+
 export default {
   data(){
       return{
-
+          LoginInfo:
+              {
+                  LoginName:'admin',
+                  LoginPwd:'123456'
+              }
       }
   },
-  components:{
-
+  methods:{
+      login:function(){
+          var a = data.LoginUser.username;
+          var b = this.LoginInfo.LoginName;
+          var c = data.LoginUser.password;
+          var d = this.LoginInfo.LoginPwd;
+           if(a===b&&c===d){
+                console.log(data.LoginUser.username);
+                this.$toast("恭喜登录成功！");
+                this.$router.push({ path: '/mine' });
+            }
+            else{
+                console.log(this.LoginInfo.LoginName);
+                this.$toast("密码或用户名错误,请重新输入密码");
+            }
+      }
   }
 }
 </script>
 <style lang="less" scoped>
-
-// .fl{float: left}
-// .fr{float: right}
-// .ov{
-//     overflow: hidden;
-// }
-// .login{
-//     background: #fff;
-// }
  h1{
      padding-top: 50px;
      text-align: center;
      color:#42bd56;
      height: 45px;
      line-height: 45px;
-    //  a{
-    //      color: #42bd56;
-    //      font-size: 15px;
-    //      position: absolute;
-    //      left: 20px;
-    //  }
  }
  .LoginContent{ 
     padding: 15px;
@@ -90,6 +94,7 @@ export default {
             font-size: 16px;
             border-radius: 3px;
             margin-top: 20px;
+            outline: none
         }
         }
     .Wrapper{

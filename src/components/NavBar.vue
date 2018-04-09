@@ -1,14 +1,14 @@
 <template>
   <div class="footer">
     <ul>
-      <router-link :class="item.class" v-for="item in NavData" :to="item.to" tag="li">
+      <router-link :class="item.class" v-for="(item,index) in NavData" :key="index" :to="item.to" tag="li">
             {{item.text}}
       </router-link>
     </ul>
   </div>
 </template>
 <script>
-export default {
+export default { 
   data(){
     return {
        NavData:[

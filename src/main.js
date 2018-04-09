@@ -7,6 +7,9 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueLazyLoad from 'vue-lazyload'
 import VueJsonp from 'vue-jsonp'
+import Toast from './store/toast'
+Vue.use(Toast)
+
 Vue.use(VueJsonp)
 
 Vue.use(VueAxios, axios)

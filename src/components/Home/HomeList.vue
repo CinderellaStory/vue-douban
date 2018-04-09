@@ -1,6 +1,6 @@
 <template>
   <div class="HomeList">
-      <router-link v-for="(items,index) in events" :to='items.alt'>
+      <router-link v-for="(items,index) in events" :to='items.alt' :key="index">
           <div class="ov">
             <div class="ArticleContent fl">
                 <h3>{{items.title}}</h3>

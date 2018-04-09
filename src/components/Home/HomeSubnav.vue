@@ -1,6 +1,6 @@
 <template>
   <div class="HomeSubnav">
-        <router-link v-for="item in items" :to="item.to">
+        <router-link v-for="(item,index) in items" :to="item.to" :key="index">
             {{item.text}} 
         </router-link>
   </div>

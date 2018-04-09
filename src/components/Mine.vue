@@ -2,13 +2,12 @@
   <div class="my">
        <div class="MyHeader">
          <div class="container">
-              <img src="https://img.mukewang.com/5333a1a90001c8d802000200-100-100.jpg" alt="">
+              <img :src="userImg" alt="">
               <div class="NameDetail">
                 <div class="BasicInfo">
                   <p>浅浅时光</p>
                   <p>
                     <span>ID:748648464</span>
-                    <!-- <a href="">个人主页&gt</a> -->
                     <router-link :to="{name:'HomePage'}">个人主页 &gt;</router-link>
                   </p>
                 </div>
@@ -21,7 +20,7 @@
         </div>
         <div class="List">
             <ul>
-              <router-link v-for="items in list" :to="items.to" tag="li">
+              <router-link v-for="(items,index) in lists" :to="items.to" tag="li" :key="index">
                 <img :src="items.icon" alt="" class="icon">
                 <span>{{items.text}}</span>
                 <span style="float:right;color:#ccc">&gt;</span>
@@ -37,7 +36,8 @@ export default {
     return{
       fllowed:'111111',
       fllower:'11',
-      list:[
+      userImg:'https://img.mukewang.com/5333a1a90001c8d802000200-100-100.jpg',
+      lists:[
           {
             to:'/Mine/MyLikes',
             name:'MyLikes',

@@ -6,6 +6,7 @@
                <Theater></Theater>
                <Latest></Latest>
                <ComingSoon></ComingSoon>
+               <Sort></Sort>
             </div>
         </div>        
     </div>        
@@ -14,10 +15,11 @@
 import ComingSoon from './Movie/ComingSoon.vue'
 import Theater from './Movie/Theater.vue'
 import Latest from './Movie/Latest.vue'
+import Sort from './Movie/Sort.vue'
  
 export default {
   components:{
-    Theater,ComingSoon,Latest
+    Theater,ComingSoon,Latest,Sort
   }
 }
 </script>
