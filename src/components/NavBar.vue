@@ -1,12 +1,12 @@
 <template>
   <div class="footer">
     <ul>
-      <router-link :class="item.class" v-for="(item,index) in NavData" :key="index" :to="item.to" tag="li">
+      <router-link v-for="(item,index) in NavData" :key="index" :to="item.to" tag="li">
             {{item.text}}
       </router-link>
-    </ul>
-  </div>
-</template>
+    </ul> 
+  </div> 
+</template> 
 <script>
 export default { 
   data(){
@@ -14,23 +14,19 @@ export default {
        NavData:[
           {
               to: '/',
-              text: '首页',
-              class:'homeText'
+              text: '首页', 
           },
 				{
-					to:'/books',
-          text:'书籍',
-          class:"booksText"
+					to:'/Distraction',
+          text:'书影音',
 				},
 				{
 					to:'/movie',
-          text:'电影',
-          class:'movieText'
+          text:'小组',
 				},
 				{
 					to:'/Mine',
           text:'我的',
-          class:'myText'
         }
         ]
             }
@@ -39,7 +35,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-  .router-link-exact-active{color: red !important; font-weight: bold}
+  .router-link-exact-active{color: #42bd56 !important; font-weight: bold}
   .footer {
     height: 50px;
   ul{
@@ -48,26 +44,15 @@ export default {
      position: fixed;
      left: 0;
      right: 0;
-     top: 0;
-     border-bottom: 1px solid #f3f3f3;
+     bottom: 0;
+     border-top: 1px solid #f3f3f3;
      background: #fff;
      li{ 
       text-decoration: none; 
       flex: 1;
       text-align: center;
-      }
-
-      .homeText{
-        color: #2384E8;
-      }
-      .booksText{
-        color: #9F7860;
-      }
-      .movieText{
-        color: #E4A813;
-      }
-      .myText{
-            color: #2AB8CC;
+      font-size: 14px;
+      color: #666;
       }
   }
   }

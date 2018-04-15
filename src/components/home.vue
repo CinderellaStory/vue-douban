@@ -1,5 +1,6 @@
 <template>
   <div class="Home">
+       <Search></Search>
      <div class="content">
        <HomeSubnav></HomeSubnav>
        <HomeList></HomeList>
@@ -8,12 +9,13 @@
 </template>
 
 <script>
+import Search from './Search.vue'
 import HomeSubnav from './Home/HomeSubnav.vue'
 import HomeList from './Home/HomeList.vue'
 
 export default {
   components:{
-    HomeSubnav,HomeList
+    HomeSubnav,HomeList,Search
   }
 }
 </script>

@@ -11,7 +11,7 @@
                 </div>  
             </div>
             <div class="DetailBtn">
-                <router-link :to="{name:'MovieDetail',params:{userId:items.id}}">{{DetailBtn}}</router-link>
+                <router-link :to="{name:'subject',params:{userId:items.id}}">{{DetailBtn}}</router-link>
             </div>
         </router-link>
     </div>

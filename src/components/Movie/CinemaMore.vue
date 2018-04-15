@@ -1,4 +1,4 @@
-<template>
+<template> 
   <div class="MovieList">
         <div class="tabs">
             <router-link to="/CinemaMore/prince">正在热映</router-link>

@@ -8,8 +8,8 @@
                       <router-link to="CinemaMore/prince">更多</router-link>
                   </div>
                 <div class="MovieList">
-                    <router-link v-for="(list,i) in items" :key="i" :to="'/subject/' + list.id">
-                        <img v-lazy="list.images.large" alt=""> 
+                    <router-link v-for="(list,i) in items" :key="i" :to="list.alt">
+                        <img v-lazy="list.image" alt=""> 
                         <div class="MovieText">{{list.title}}</div>
                     </router-link>
                 </div>
@@ -18,39 +18,33 @@
     </div>        
 </template>
 <script>
-import axios  from  'axios'
- 
-   function Theater(){
-    return axios.get('/api/movie/coming_soon?&count=8');
+ import axios  from  'axios'
+
+   function Chinese(){
+    return axios.get('/api/music/search?q=薛之谦');
   }
-   function ComingSoon(){
-    return axios.get('/api/movie/in_theaters?&count=8');
-  }
-  function Latest(){
-    return axios.get('/api/movie/top250?&count=8');
+   function Occident(){
+    return axios.get('/api/music/search?q=张杰');
   }
 export default {
   data(){
     return{
       data:{
-        theat:[],
-        coming:[],
-        latest:[]
+        Chinese:[],
+        Occident:[]
       },
       title:{
-        theat:'院影热线',
-        coming:"正在上映",
-        latest:'新片速递'
+        Chinese:'薛之谦',
+        Occident:'张杰'
       }
     }
   },
   mounted(){  
     const _this = this;
-    axios.all([Theater(),ComingSoon(),Latest()])
-    .then(axios.spread(function (theat,coming,latest){
-      _this.data.theat = theat.data.subjects;
-      _this.data.coming = coming.data.subjects;
-      _this.data.latest = latest.data.subjects;
+    axios.all([Chinese(),Occident()])
+    .then(axios.spread(function (Chinese,Occident){
+      _this.data.Chinese = Chinese.data.musics;
+      _this.data.Occident = Occident.data.musics;
     }))
   }
 }
@@ -60,7 +54,11 @@ export default {
 a{
     text-decoration: none;
 }
-
+img{
+    width: 100px;
+    height: 142px;
+    display: inline-block
+}
 .Theater{
   .CategoryTitle{
     display: flex;
@@ -82,14 +80,9 @@ a{
     a{
         flex: 1;
         text-align: center;
-        margin-right: 10px;
+        margin-right: 0.48rem;
         color: #111;
         width: 100px;
-        img{
-            width: 100px;
-            height: 142px;
-            display: inline-block
-        }
         .MovieText{
         word-break: keep-all;
         white-space: nowrap;

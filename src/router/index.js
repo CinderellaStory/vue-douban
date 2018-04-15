@@ -5,18 +5,28 @@ import Register from '@/components/Register'
 import RecoverPassword from '@/components/RecoverPassword'
 import home from '@/components/home'
 import books from '@/components/books'
+import movie from '@/components/movie'
+
+import comingSoon from '@/components/comingSoon'
+import Latest from '@/components/Latest'
+
+import Distraction from '@/components/Distraction'
+
+
 import BookMore from '@/components/Book/BookMore'
 import hotfiction from '@/components/Book/hotfiction'
 import hotnonfiction from '@/components/Book/hotnonfiction'
 import BookFiction from '@/components/Book/BookFiction'
 import BookNonfiction from '@/components/Book/BookNonfiction'
+
 import Mine from '@/components/Mine'
-import movie from '@/components/movie'
 import CinemaMore from '@/components/Movie/CinemaMore'
 import rose from '@/components/Movie/rose'
 import fox from '@/components/Movie/fox'
 import prince from '@/components/Movie/prince'
-import MovieDetail from '@/components/Movie/MovieDetail'
+
+import subject from '@/components/subject'
+
 import fllowed from '@/components/Mine/fllowed'
 import fllower from '@/components/Mine/fllower'
 import HomePage from '@/components/Mine/HomePage'
@@ -42,8 +52,30 @@ export default new Router({
       component: Login
     },
     {
-      path: '/Login',
-      component: Login
+      path: '/Distraction',
+      component: Distraction,
+      children:[
+        {
+          path: '/Distraction/',
+          component: movie
+        },
+        {
+          path: '/Distraction/books',
+          component: books
+        },
+        {
+          path: '/Distraction/movie',
+          component: movie
+        },
+        {
+          path: '/Distraction/comingSoon',
+          component: comingSoon
+        },
+        {
+          path: '/Distraction/Latest',
+          component: Latest
+        }
+      ]
     },
     {
       path: '/Register',
@@ -54,16 +86,8 @@ export default new Router({
       component: RecoverPassword
     },
     {
-      path: '/books',
-      component: books
-    },
-    {
       path: '/Mine',
       component: Mine
-    },
-    {
-      path: '/movie',
-      component: movie
     },
     {
       path: '/BookMore',
@@ -106,9 +130,9 @@ export default new Router({
     ]
     },
     {
-      path: '/Movie/MovieDetail/:userId',
-      name: 'MovieDetail',
-      component: MovieDetail
+      path: '/subject/:userId',
+      name: 'subject',
+      component: subject
     },
     {
       path:'/Mine/fllowed',

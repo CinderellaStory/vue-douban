@@ -1,4 +1,4 @@
-// 新片速递
+// 同城 city
 <template>
   <div class="ComingSoon">
        <div class="CategoryTitle">
@@ -14,7 +14,7 @@
   </div>
 </template>
 <script>
-export default {
+export default { 
         data(){
             return{
             top250:'新片速递',

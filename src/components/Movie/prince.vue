@@ -1,4 +1,6 @@
 // 正在热映  更多数据
+
+// 正在热映  更多数据
 <template>
   <div class="MovieList">
       <ul>
@@ -12,7 +14,7 @@
                 </div>                
             </div>
             <div class="DetailBtn">
-                <router-link :to="{name:'MovieDetail',params:{userId:items.id}}">{{DetailBtn}}</router-link>
+                <router-link :to="{name:'subject',params:{userId:items.id}}">{{DetailBtn}}</router-link>
             </div>
         </li>
         </ul>
@@ -23,7 +25,7 @@ export default {
   data(){
       return{
           DetailBtn:'详情',
-          subjects:[],
+          subjects:[]
          }
       },
       created(){

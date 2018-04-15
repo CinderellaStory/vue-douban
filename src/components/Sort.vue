@@ -2,10 +2,10 @@
   <div class="Sort">
       <h2>分类浏览</h2>
       <ul>
-          <router-link v-for="(item,index) in subjects" :key="index" :to="item.to" tag="li">
+          <li v-for="(item,index) in subjects" :key="index" :to="item.to">
                 {{item.title}}
                 <span></span>
-          </router-link>
+          </li>
       </ul>
   </div>
 </template>
@@ -59,7 +59,7 @@ export default {
     }
     ul{
         li{
-            width: 41.5%;
+            width: 41%;
             float: left;
             border-top: solid 1px #eee;
             border-right: solid 1px #eee;

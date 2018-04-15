@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <NavBar></NavBar>
     <router-view/>
+    <NavBar></NavBar>
   </div>
 </template>
 
@@ -17,6 +17,15 @@ export default {
 </script>
 
 <style lang="less">
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.ov{
+    overflow: hidden;
+}
 html{
 }
 *{padding: 0;margin: 0;}
