@@ -1,5 +1,9 @@
 <template>
   <div class="group">
+    <div class="group2">
+      <p class="find">428896个有趣的人</p>
+      <p class="her">立即选择加入吧！</p>
+    </div>
       <section v-for="(items,i) in array" :key="i">
         <h6>{{title[i]}}</h6>
         <ul>
@@ -53,6 +57,24 @@ export default {
 
 <style lang="less" scoped>
   .group{
+    .group2{
+      padding: 14px 0 10px 0;
+      background-image: url(https://img3.doubanio.com/f/talion/fbcb08987a36258354c6037211d94286bef9716c/pics/card/promotion_bg.jpg);
+      background-size: 100%;
+      p{
+        text-align: center;
+        &.find{
+          color: #111;
+          font-size: 20px;
+          font-weight: bold;
+        }
+        &.her{
+          color: #aaa;
+          margin-top: 6px;
+          font-size: 15px;
+        }
+      }
+    }
     section{
       margin:30px 0; 
       h6{

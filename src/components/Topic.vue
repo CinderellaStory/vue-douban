@@ -17,46 +17,25 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
+
 export default {
   data(){
       return{
-          items:[
-              {
-                  title:'中国现在的考试模式应该如何改进呢？',
-                  number:'2334',
-                  container:'距离高考不到100天，教育部宣布将取消鼓励性加分。',
-                  pic:'https://qnmob3.doubanio.com/view/elanor_image/raw/public/5M37B792.jpg?imageView2/2/q/90/w/200/h/200/format/jpg'
-              },
-              {
-                  title:'韩版《小森林》与日版相比如何？',
-                  number:'2334',
-                  container:'不喜欢韩国，本着要拿来比的心情看韩版，但因为金泰梨自带的纯情气质莫名的提升了好感。',
-                  pic:'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2512152196.jpg'
-              },
-              {
-                  title:'如何追上父母老去的速度',
-                  number:'2334',
-                  container:'如果我妈不在了，我觉得我的世界就失去了光泽。',
-                  pic:'https://qnmob3.doubanio.com/view/elanor_image/raw/public/46393580.jpg?imageView2/2/q/90/w/200/h/200/format/jpg'
-              },
-              {
-                  title:'《狂暴巨兽》与其他巨兽电影相比如何？',
-                  number:'2334',
-                  container:'“喜欢你就对你好，讨厌你就吃掉你”。很难想象，出自铁血壮汉巨石强森之口。',
-                  pic:'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2516079193.jpg'
-              },
-              {
-                  title:'韩版《小森林》与日版相比如何？',
-                  number:'2334',
-                  container:'不喜欢韩国，本着要拿来比的心情看韩版，但因为金泰梨自带的纯情气质莫名的提升了好感。',
-                  pic:'https://qnmob3.doubanio.com/view/elanor_image/raw/public/5M37B792.jpg?imageView2/2/q/90/w/200/h/200/format/jpg'
-              }
-          ]
+          items:[]
       }
   },
-  components:{
-
-  }
+   mounted () {
+      this.getContent()
+    },
+    methods: {
+      getContent(){
+        const _this = this;
+          axios.get('http://localhost:5566/static/Topic.json').then(res =>{
+            _this.items= res.data;
+          })
+      }
+      }
 }
 </script>
 

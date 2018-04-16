@@ -61,11 +61,13 @@ export default {
     background: #f6f6f6;
     .group{
       padding: 18px 0 10px 0;
+      background-image: url(https://img3.doubanio.com/f/talion/fbcb08987a36258354c6037211d94286bef9716c/pics/card/promotion_bg.jpg);
+      background-size: 100%;
       p{
         text-align: center;
         &.find{
           color: #111;
-          font-size: 16px;
+          font-size: 18px;
         }
         &.her{
           color: #c3c3c3;
