@@ -1,21 +1,136 @@
 <template>
   <div class="group">
-      <h6>新组速报</h6>
+      <section v-for="(items,i) in array" :key="i">
+        <h6>{{title[i]}}</h6>
+        <ul>
+          <li class="ov" v-for="(item,index) in items" :key="index">
+            <a href="">
+              <img v-lazy="item.avatar" alt="">
+              <div class="detail">
+                <h4>{{item.title}}</h4>
+                <p>{{item.container}}</p>
+              </div>
+              <div class="AddBtn">{{AddBtn}}</div>
+            </a>
+          </li>
+        </ul>
+      </section>
   </div>
 </template>
 <script>
+import axios from 'axios'
+
 export default {
   data(){
       return{
-
+        AddBtn:"加入",
+        title:{
+          news:'新组速报',
+          hots:'热门小组',
+          videos:'影视小组',
+          books:'读书小组',
+          musics:'音乐小组',
+          citys:'同城小组',
+          schools:'高校小组',
+          works:'职场小组'
+        },
+        array:{}
       }
   },
-  components:{
-
-  }
+  mounted () {
+      this.getContent()
+    },
+    methods: {
+      getContent(){
+        const _this = this;
+          axios.get('http://localhost:5566/static/group.json').then(res =>{
+            _this.array= res.data;
+          })
+      }
+      }
 }
 </script>
 
 <style lang="less" scoped>
-
+  .group{
+    section{
+      margin:30px 0; 
+      h6{
+        text-align: center;
+        color: #333;
+        font-size: 16px;
+        margin: 20px;
+        font-weight: normal;
+        &::before{
+          content: '';
+          width: 31%;
+          height: 1px;
+          margin-right: 30px;
+          display: inline-block;
+          vertical-align: middle;
+          background: #c3c3c3;
+        }
+        &::after{
+          content: '';
+          width: 31%;
+          margin-left: 30px;
+          height: 1px;
+          display: inline-block;
+          vertical-align: middle;
+          background: #ccc;
+        }
+      }
+      ul{
+        li{
+        margin: 30px 20px;
+          a{
+            color: #494949;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+              width: 50px;
+              width: 15%;
+              height: 15%;
+            }
+            .detail{
+              width: 64%;
+              display: inline-block;
+              margin: 0 10px;
+              h4{
+                font-size: 17px;
+                overflow : hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+              }
+              p{
+                line-height: 14px;
+                overflow : hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                margin-top: 4px;
+                -webkit-box-orient: vertical;
+                color: #ccc;
+                font-size: 12px
+              }
+            }
+            .AddBtn{
+              display: inline-block;
+              // width: 20%;
+              border-radius: 4px;
+              border: solid 1px #42bd56;
+              font-size: 14px;
+              line-height: 1.2;
+              color: #42bd56;
+              padding: 5px 10px;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
 </style>

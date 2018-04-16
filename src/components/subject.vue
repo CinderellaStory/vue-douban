@@ -4,8 +4,9 @@
           <h2>{{subject.title}}</h2>
           <section class="Detail ov">
               <div class="fl DetailInfo">
+                <p><span>评分：<strong>{{subject.rating.average}}</strong></span><span>{{subject.ratings_count}}人评价</span></p>
                 <p>
-                    {{subject.year}} /
+                    {{subject.year}}年 /
                     {{subject.genres[0]}} /
                     {{subject.genres[1]}} /
                     {{subject.genres[2]}} /
@@ -18,7 +19,7 @@
                 </p>
               </div>
               <div class="fr DetailImg">
-                  <!-- <img v-lazy="subject.images.large" alt=""> -->
+                  <img v-lazy="subject.images.large" alt="">
               </div>
           </section> 
           <section>
@@ -203,12 +204,22 @@ section{
             p{
                 color: #494949;
                 font-size: 14px;
+                    margin-bottom: 10px;
+                span{
+                    color: #aaa;
+                    font-size: 14px;
+                    margin-right: 20px;
+                    strong{
+                        color: rgb(241, 3, 3);
+                        font-size: 18px;
+                    }
+                }
             }
         }
         .DetailImg{
             width: 30%;
             img{
-                max-width: 100px;
+               width: 100%;
             }
         }
     }

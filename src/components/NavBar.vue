@@ -20,10 +20,14 @@ export default {
 					to:'/Distraction',
           text:'书影音',
 				},
+        {
+					to:'/broadcast',
+          text:'广播',
+        },
 				{
-					to:'/movie',
+					to:'/group',
           text:'小组',
-				},
+        },
 				{
 					to:'/Mine',
           text:'我的',
@@ -51,7 +55,7 @@ export default {
       text-decoration: none; 
       flex: 1;
       text-align: center;
-      font-size: 14px;
+      font-size: 16px;
       color: #666;
       }
   }

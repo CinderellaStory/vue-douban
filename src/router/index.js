@@ -1,11 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import Login from '@/components/login'
 import Register from '@/components/Register'
 import RecoverPassword from '@/components/RecoverPassword'
 import home from '@/components/home'
 import books from '@/components/books'
 import movie from '@/components/movie'
+import Group from '@/components/Group'
+import broadcast from '@/components/broadcast'
 
 import comingSoon from '@/components/comingSoon'
 import Latest from '@/components/Latest'
@@ -88,6 +91,14 @@ export default new Router({
     {
       path: '/Mine',
       component: Mine
+    },
+    {
+      path: '/Group',
+      component: Group
+    },
+    {
+      path: '/broadcast',
+      component: broadcast
     },
     {
       path: '/BookMore',

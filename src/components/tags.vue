@@ -1,6 +1,10 @@
 <template>
   <div class="tags">
-      <router-link v-for="(tag,index) in tags" :to="tag.to" :key="index">{{tag.text}}</router-link>
+      <ul>
+         <li v-for="(tag,index) in tags" :to="tag.to" :key="index">
+             <a href="">{{tag.text}}</a>
+         </li>
+      </ul>
   </div>
 </template>
 <script>
@@ -26,16 +30,17 @@ export default {
 
 <style lang="less" scoped>
 .tags{
-    a{
+    li{
         background: #f5f5f5;
-        color: #494949;
-        margin: 10px 10px 0 0;
         border-radius: 28px;    
-        padding: 4px 16px;
+        padding: 0px 16px;
         margin: 6px 10px;
         display: inline-block;
-        font-size: 15px;
         line-height: 28px;
+        a{
+        color: #494949;
+        font-size: 15px;
+        }
     }
 }
 </style>

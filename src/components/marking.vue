@@ -26,7 +26,6 @@
 <style scpoed lang="less">
 .marking{
   display: flex;
-  margin: 30px 0;
   a{
     flex: 1;
     text-align: center;
