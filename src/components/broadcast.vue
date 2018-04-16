@@ -104,6 +104,8 @@ export default {
                   font-size: 18px;
               }
               p{
+                  margin-top: 4px;
+                  font-size: 12px;
                   color: #aaa;
               }
             }
