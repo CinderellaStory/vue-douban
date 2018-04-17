@@ -4,8 +4,8 @@
           <div class="ov">
             <div class="ArticleContent fl">
                 <h3>{{items.title}}</h3>
-                <!-- <p>{{items.content}}</p> -->
-                <p>2018年第15周，《头号玩家》口碑炸裂上映，一百多个彩蛋眼花缭乱，年过七十的斯皮尔伯格竟然能拍出一部让影迷游戏迷动漫迷集体叫好的作品实在难得！《暴烈无声》《第三度嫌疑人》等院线成本小佳片纷纷上榜，为榜单注入新鲜血液。  </p>
+                <p v-text="items.content">{{items.content}}</p>
+                <!-- <p>2018年第15周，《头号玩家》口碑炸裂上映，一百多个彩蛋眼花缭乱，年过七十的斯皮尔伯格竟然能拍出一部让影迷游戏迷动漫迷集体叫好的作品实在难得！《暴烈无声》《第三度嫌疑人》等院线成本小佳片纷纷上榜，为榜单注入新鲜血液。  </p> -->
             </div>
             <div class="ArticleDetail fl">
                 <img  v-lazy="items.image_hlarge" alt="">
@@ -27,7 +27,7 @@ export default {
   },
   created(){
         const _this = this;
-        this.$jsonp('https://api.douban.com/v2/event/list?loc=108288')
+        this.$jsonp('https://api.douban.com/v2/event/list?loc=shenzhen')
         .then( json => {
             _this.events = json.events
         })
@@ -57,6 +57,10 @@ export default {
             color: #494949;
             font-size: 18px;
             font-weight: bold;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2; //需要控制的文本行数
+            overflow: hidden;
         }
         p{
             color:#aaa;
@@ -73,7 +77,10 @@ export default {
         width: 30%;
         text-align: right;
         display: inline-block;
-        img{ width: 80%; }
+        img{ 
+            width: 80%;
+            height: 120px;
+         }
     }
     .ArticleFooter{
         position: relative;

@@ -30,6 +30,7 @@ import fox from '@/components/Movie/fox'
 import prince from '@/components/Movie/prince'
 
 import subject from '@/components/subject'
+import event from '@/components/event'
 
 import fllowed from '@/components/Mine/fllowed'
 import fllower from '@/components/Mine/fllower'
@@ -146,6 +147,10 @@ export default new Router({
       name: 'subject',
       component: subject
     },
+    {
+      path:'/event/:id',
+      component:event
+     },
     {
       path:'/Mine/fllowed',
       component:fllowed,
