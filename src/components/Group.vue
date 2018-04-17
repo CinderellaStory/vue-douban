@@ -41,16 +41,11 @@ export default {
         array:{}
       }
   },
-  mounted () {
-      this.getContent()
-    },
-    methods: {
-      getContent(){
-        const _this = this;
+    created(){
+        const _this = this; 
           axios.get('http://localhost:5566/static/group.json').then(res =>{
             _this.array= res.data;
           })
-      }
       }
 }
 </script>

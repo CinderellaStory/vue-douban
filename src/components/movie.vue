@@ -8,7 +8,7 @@
                       <router-link to="CinemaMore/prince">更多</router-link>
                   </div>
                 <div class="MovieList">
-                    <router-link v-for="(list,i) in items" :key="i" :to="'/subject/' + list.id">
+                    <router-link v-for="(list,i) in items" :key="i" :to="'/subject/' + list.id" tag="li"> 
                         <img v-lazy="list.images.large" alt=""> 
                         <div class="MovieText">{{list.title}}</div>
                     </router-link>
@@ -75,11 +75,10 @@ a{
     }
 }
 .MovieList{
-
     display: flex;
     overflow-x: auto;
     padding: 15px 0 20px 10px;
-    a{
+    li{
         flex: 1;
         text-align: center;
         margin-right: 10px;

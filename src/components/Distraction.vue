@@ -1,11 +1,13 @@
 //娱乐 Distraction
 <template>
-  <div class="BMMheader">
+  <div class="Distraction">
+    <div class="BMMheader">
       <ul>
         <router-link :class="item.class" v-for="(item,index) in NavData" :key="index" :to="item.to" tag="li">
                 {{item.text}}
         </router-link>
-    </ul>
+       </ul>
+    </div>
     <div class="DistractionContent">
       <router-view></router-view>
     </div>
@@ -14,7 +16,8 @@
 <script>
 import books from './books'
 import movie from './movie'
-import comingSoon from './comingSoon'
+import music from './music'
+import City from './City'
 
 export default {
   data(){
@@ -25,7 +28,7 @@ export default {
           text:'电影'
         },
         {
-          to:'/Distraction/comingSoon',
+          to:'/Distraction/music',
           text:'音乐'
         },
         {
@@ -33,7 +36,7 @@ export default {
           text:'书籍'
         },
         {
-          to:'/Distraction/Latest',
+          to:'/Distraction/City',
           text:'同城'
         }
         ]
@@ -79,8 +82,5 @@ export default {
             color: #2AB8CC;
       }
   }
-  }
-  .DistractionContent{
-    margin-top: 42px;
   }
 </style>

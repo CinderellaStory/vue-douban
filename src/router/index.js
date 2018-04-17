@@ -4,16 +4,18 @@ import Router from 'vue-router'
 import Login from '@/components/login'
 import Register from '@/components/Register'
 import RecoverPassword from '@/components/RecoverPassword'
+
 import home from '@/components/home'
+import Distraction from '@/components/Distraction'
+import broadcast from '@/components/broadcast'
+import Group from '@/components/Group'
+import Mine from '@/components/Mine'
+
 import books from '@/components/books'
 import movie from '@/components/movie'
-import Group from '@/components/Group'
-import broadcast from '@/components/broadcast'
+import music from '@/components/music'
+import City from '@/components/City'
 
-import comingSoon from '@/components/comingSoon'
-import Latest from '@/components/Latest'
-
-import Distraction from '@/components/Distraction'
 
 
 import BookMore from '@/components/Book/BookMore'
@@ -22,7 +24,6 @@ import hotnonfiction from '@/components/Book/hotnonfiction'
 import BookFiction from '@/components/Book/BookFiction'
 import BookNonfiction from '@/components/Book/BookNonfiction'
 
-import Mine from '@/components/Mine'
 import CinemaMore from '@/components/Movie/CinemaMore'
 import rose from '@/components/Movie/rose'
 import fox from '@/components/Movie/fox'
@@ -71,12 +72,12 @@ export default new Router({
           component: movie
         },
         {
-          path: '/Distraction/comingSoon',
-          component: comingSoon
+          path: '/Distraction/music',
+          component: music
         },
         {
-          path: '/Distraction/Latest',
-          component: Latest
+          path: '/Distraction/City',
+          component: City
         }
       ]
     },
