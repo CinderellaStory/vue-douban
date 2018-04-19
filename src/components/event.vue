@@ -25,7 +25,7 @@
       <section>
         <div class="ActiveDeatil">
           <h1>活动详情：</h1>
-          <p>{{items.content}}</p>
+          <p v-html="items.content"></p>
         </div>
       </section>
   </div>
@@ -56,7 +56,7 @@ export default {
     h1{
       font-size: 16px;
       color: #494949;
-      margin: 10px 0; 
+      margin: 10px 0 20px; 
       }
       .Poster{
         height: 200px;
@@ -118,6 +118,7 @@ export default {
         margin: 0 20px;
         color: #494949;
         font-size: 15px;
+        padding-bottom: 60px;
         line-height: 24px;
       }
     }

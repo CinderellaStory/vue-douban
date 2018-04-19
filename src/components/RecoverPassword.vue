@@ -12,7 +12,7 @@
                         <img src="https://www.douban.com/misc/captcha?id=ZSqNugpSdIoz26crasVJUheF:en&size=m" alt="">
                     </label>
                 </div>
-                <button class="SubmitBtn" type="submit">登录</button>
+                <button class="SubmitBtn" type="submit">提交</button>
         </form>
     </div>
   </div>

@@ -14,7 +14,7 @@
                         <input type="text" placeholder="请输入昵称">
                     </label>
                 </div>
-                <button class="SubmitBtn" type="submit">登录</button>
+                <button class="SubmitBtn" type="submit">立即注册</button>
         </form>
     </div>
   </div>

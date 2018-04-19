@@ -4,11 +4,10 @@
           <div class="ov">
             <div class="ArticleContent fl">
                 <h3>{{items.title}}</h3>
-                <p v-text="items.content">{{items.content}}</p>
-                <!-- <p>2018年第15周，《头号玩家》口碑炸裂上映，一百多个彩蛋眼花缭乱，年过七十的斯皮尔伯格竟然能拍出一部让影迷游戏迷动漫迷集体叫好的作品实在难得！《暴烈无声》《第三度嫌疑人》等院线成本小佳片纷纷上榜，为榜单注入新鲜血液。  </p> -->
+                <p>2018年第15周，《头号玩家》口碑炸裂上映，一百多个彩蛋眼花缭乱，年过七十的斯皮尔伯格竟然能拍出一部让影迷游戏迷动漫迷集体叫好的作品实在难得！《暴烈无声》《第三度嫌疑人》等院线成本小佳片纷纷上榜，为榜单注入新鲜血液。  </p>
             </div>
             <div class="ArticleDetail fl">
-                <img  v-lazy="items.image_hlarge" alt="">
+                <img  v-lazy="items.image" alt="">
             </div>
           </div>
             <div class="ArticleFooter ov">

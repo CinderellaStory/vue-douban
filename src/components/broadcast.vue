@@ -100,7 +100,7 @@ export default {
             .detail{
               display: inline-block;
                 vertical-align: middle;
-                width: 54%;
+                width: 50%;
               margin-left: 10px;
               h4{
                   font-size: 18px;
