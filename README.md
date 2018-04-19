@@ -1,7 +1,8 @@
 # vue-douban
 
 > A Vue.js project
-https://raw.githubusercontent.com/CinderellaStory/vue-douban/master/src/assets/douban.gif
+![https://raw.githubusercontent.com/CinderellaStory/vue-douban/master/src/assets/douban.gif]
+
 
 ## Build Setup
 
