@@ -10,7 +10,8 @@ import VueLazyLoad from 'vue-lazyload'
 import VueJsonp from 'vue-jsonp'
 import Toast from './store/toast'
 import VueScroller from 'vue-scroller'
-
+import MuseUI from 'muse-ui'
+Vue.use(MuseUI)
 Vue.use(VueScroller)
 Vue.use(Toast)
 

@@ -4,6 +4,9 @@
       <p class="find">发现有趣的人</p>
       <p class="her">关注他们，发现更大的世界</p>
     </div>
+     <!-- <div class="loading">
+        <img src="../assets/loading_green.gif" alt="loading">
+    </div> -->
     <ul>
       <li v-for="(item,index) in items" :key="index">
         <a href="">

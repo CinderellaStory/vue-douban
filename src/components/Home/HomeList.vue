@@ -15,24 +15,59 @@
                 <p class="fr">来自栏目 {{items.subcategory_name}}</p>
             </div>
       </router-link>
+            <p class="nomore" v-show="nomore">内容到底啦</p>
+     <mu-infinite-scroll :scroller="scroller" :loading="loading" @load="loadMore"/>
   </div>
 </template>
 <script>
+import axios from 'axios'
+
 export default {
   data(){
       return{
-          events:[]
+          events:[],
+          num: 10,
+          nomore: false,
+          loading: false,
+          scroller: null,
+          page: 1
       }
   },
   created(){
         const _this = this;
-        this.$jsonp('https://api.douban.com/v2/event/list?loc=shenzhen')
-        .then( json => {
-            _this.events = json.events
+        axios.get('/api/event/list?loc=shenzhen')
+        .then( res => {
+            _this.events = res.data.events;
         })
     },
-  components:{
-
+    mounted () {
+    this.scroller = this.$el
+  },
+  methods:{
+     loadMore(){
+         if (!this.nomore&&!this.inloading) {
+         this.loading = true;
+         let arr = []
+         setTimeout (()=>{
+             this.loading = false
+                let that = this
+            axios.get('/api/event/list?loc=guangzhou' + '&page=' + this.page)
+            .then( res => {
+                console.log(res.data.events);
+                arr = res.data.events;
+                if (arr.length === 0) {
+                // console.log(arr);
+                that.loading = false
+                that.nomore = true
+                return
+              }
+                // console.log(2222);
+              that.events = [...that.events, ...arr]
+              arr = [];
+            })
+         }, 2000)
+         }
+     }
   }
 }
 </script>
