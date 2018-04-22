@@ -111,11 +111,11 @@ export default new Router({
           component: BookNonfiction  
         },
       {
-        path: 'BookNonfiction',
+        path: '/BookNonfiction',
         component:BookNonfiction
       },
       {  
-        path: 'BookFiction',  
+        path: '/BookFiction',  
         component: BookFiction  
       }
     ]

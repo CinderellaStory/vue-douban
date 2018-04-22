@@ -19,12 +19,12 @@ export default {
                   to:'CinemaMore/fox'
               },
               {
-                  text:'虚构类',
-                  to:'BookMore/BookFiction'
+                  text:'同城',
+                  to:'Distraction/City'
               },
               {
-                  text:'非虚构类',
-                  to:'BookMore/BookNonfiction'
+                  text:'音乐',
+                  to:'Distraction/music'
               }
           ]
       }

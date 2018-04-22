@@ -53,10 +53,10 @@ export default {
                 let that = this
             axios.get('/api/event/list?loc=guangzhou' + '&page=' + this.page)
             .then( res => {
-                console.log(res.data.events);
+                // console.log(res.data.events);
                 arr = res.data.events;
                 if (arr.length === 0) {
-                // console.log(arr);
+                console.log(1111);
                 that.loading = false
                 that.nomore = true
                 return
