@@ -138,10 +138,10 @@ export default {
               display: inline-block;
               // width: 20%;
               border-radius: 4px;
-              border: solid 1px #42bd56;
+              border: solid 1px #f73e4a;
               font-size: 14px;
               line-height: 1.2;
-              color: #42bd56;
+              color: #f73e4a;
               padding: 5px 10px;
               text-align: center;
             }

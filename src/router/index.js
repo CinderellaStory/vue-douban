@@ -143,12 +143,13 @@ export default new Router({
     ]
     },
     {
-      path: '/subject/:userId',
+      path: '/subject/:id',
       name: 'subject',
       component: subject
     },
     {
       path:'/event/:id',
+      name: 'event',
       component:event
      },
     {

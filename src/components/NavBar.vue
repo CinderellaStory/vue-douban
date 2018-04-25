@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-  .router-link-exact-active{color: #42bd56 !important; font-weight: bold}
+  .router-link-exact-active{color: #f73e4a !important; font-weight: bold}
   .footer {
     height: 50px;
   ul{

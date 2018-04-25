@@ -1,27 +1,21 @@
-<template>
+Z<template>
   <div class="MovieList">
       <div class="MovieDetail">
           <h2>{{subject.title}}</h2>
           <section class="Detail ov">
               <div class="fl DetailInfo">
-                <p><span>评分：<strong>{{subject.rating.average}}</strong></span><span>{{subject.ratings_count}}人评价</span></p>
                 <p>
-                    {{subject.year}}年 /
-                    {{subject.genres[0]}} /
-                    {{subject.genres[1]}} /
-                    {{subject.genres[2]}} /
-                    {{subject.casts[0].name}} /
-                    {{subject.casts[1].name}} /
-                    {{subject.casts[2].name}} /
-                    {{subject.casts[3].name}} /
-                    {{subject.directors[0].name}} /
-                    {{subject.countries[0]}} 
+                    <rating :rating="subject.rating"></rating>
+                    <span>{{subject.ratings_count}}人评价</span>
+                </p>
+                <p>
+                    {{subject.subjectMeta}}
                 </p>
               </div>
               <div class="fr DetailImg">
                   <img v-lazy="subject.images.large" alt="">
               </div>
-          </section> 
+          </section>
           <section>
               <marking></marking>
           </section>
@@ -52,7 +46,7 @@
             <!-- <pics></pics> -->
             <div class="pics">
                 <ul>
-                    <li class="video" style="background-image:url(https://img1.doubanio.com/img/trailer/medium/2519044368.jpg?152351330)"> 
+                    <li class="video" style="background-image:url(https://img1.doubanio.com/img/trailer/medium/2519044368.jpg?152351330)">
                         <a href="">
                             <span><img src="https://img3.doubanio.com/f/talion/b6df390a5411896e81ad9be86a97121c17d4c805/pics/card/play-button.png" alt=""></span>
                         </a>
@@ -69,29 +63,30 @@
                     </li>
                 </ul>
             </div>
-        </section>  
+        </section>
         <section>
             <h4>{{subject.title}}的短评</h4>
             <comments></comments>
-        </section>  
+        </section>
         <section>
             <h4>了解更多电影信息</h4>
             <sort></sort>
-        </section>  
+        </section>
         <section>
             <h4>{{subject.title}}的豆列</h4>
             <interests></interests>
-        </section>  
+        </section>
         <section>
             <h4>豆瓣正在热议</h4>
             <Topic></Topic>
-        </section>  
+        </section>
       </div>
     </div>
 </template>
 <script>
 import marking from './marking.vue'
 import tags from './tags.vue'
+import Rating from './Rating.vue'
 import comments from './comments.vue'
 import sort from './sort.vue'
 import interests from './interests.vue'
@@ -100,7 +95,9 @@ import Topic from './Topic.vue'
 export default {
   data(){
       return{
-          subject:[],
+          subject:[
+
+          ],
           items:[
               {
                   images:'https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1432840050.06.jpg',
@@ -165,16 +162,26 @@ export default {
           ]
          }
       },
-      created(){
-        const _this = this;
-        this.$jsonp('https://api.douban.com/v2/movie/subject/26430636')
-        .then(json =>{
-            _this.subject = json
-            // console.log(json.summary)
-        })
+  mounted(){
+      this.subjectMeta();
   },
   components:{
-      marking,tags,comments,sort,interests,Topic
+      marking,tags,comments,sort,interests,Topic,Rating
+  },
+  methods:{
+      subjectMeta(){
+           const _this = this;
+            const id = this.$route.params.id;
+            this.$jsonp('/api/movie/subject/'+id)
+            .then(json =>{
+                _this.subject = json;
+                _this.subject.subjectMeta = 
+                json.year +'年' + '/' +
+                json.genres.join(' / ') + ' / ' +
+                json.casts.map(item => item.name).join(' / ') + ' / ' +
+                json.countries.join(' / ') + ' / ' 
+            })
+      }
   }
 }
 </script>
@@ -200,24 +207,19 @@ section{
         width: 100%;
         margin-top: 10px;
         .DetailInfo{
-            width: 65%;
+            width: 72%;
             p{
                 color: #494949;
                 font-size: 14px;
-                    margin-bottom: 10px;
+                margin-bottom: 10px;
                 span{
-                    color: #aaa;
+                    color:#aaa;
                     font-size: 14px;
-                    margin-right: 20px;
-                    strong{
-                        color: rgb(241, 3, 3);
-                        font-size: 18px;
-                    }
                 }
             }
         }
         .DetailImg{
-            width: 30%;
+            width: 26%;
             img{
                width: 100%;
             }

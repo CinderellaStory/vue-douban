@@ -6,7 +6,7 @@
                     <router-link to="BookMore/BookFiction">更多</router-link>
                 </div>
                 <div class="BookList">
-                    <router-link v-for="(list,i) in items" :to="list.alt" :key="i">
+                    <router-link v-for="(list,i) in items" :to="{name:'subject',params:{id:list.id}}" :key="i">
                         <img v-lazy="list.images.large" alt="">
                         <div class="BookText">{{list.title}}</div>
                     </router-link>

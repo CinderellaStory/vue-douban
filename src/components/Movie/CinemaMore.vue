@@ -29,8 +29,8 @@ a{
     font-size: 14px;
 }
 .router-link-exact-active{
-    border-bottom: 2px solid #42bd56;
-    color: #42bd56;
+    border-bottom: 2px solid #f73e4a;
+    color: #f73e4a;
     font-weight: bold
 }
 }

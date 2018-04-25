@@ -117,7 +117,7 @@ export default {
             .FloowBtn{
               display: inline-block;
               color: #fff;
-              background: #42bd56;
+              background: #f73e4a;
               padding: 4px 18px;
               font-size: 14px;
               border-radius: 3px;

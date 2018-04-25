@@ -8,7 +8,7 @@
             </div>
             <div class="cityList">
                 <ul>
-                    <router-link tag="li" v-for="(item,index) in items" :key="index" :to="'/event/' + item.id">
+                    <router-link tag="li" v-for="(item,index) in items" :key="index" :to="{name:'event',params:{id:item.id}}">
                         <img v-lazy="item.large" alt="">
                         <p>{{item.title}}</p>
                         <div class="times">{{item.times}}</div>

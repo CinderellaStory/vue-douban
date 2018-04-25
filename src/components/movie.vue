@@ -8,18 +8,18 @@
                       <router-link to="CinemaMore/prince">更多</router-link>
                   </div>
                 <div class="MovieList">
-                    <router-link v-for="(list,i) in items" :key="i" :to="'/subject/' + list.id" tag="li"> 
-                        <img v-lazy="list.images.large" alt=""> 
+                  <router-link v-for="(list,i) in items" :key="i" :to="{name:'subject',params:{id:list.id}}" tag="li">
+                        <img v-lazy="list.images.large" alt="">
                         <div class="MovieText">{{list.title}}</div>
                     </router-link>
                 </div>
           </div>
-        </div>        
-    </div>        
+        </div>
+    </div>
 </template>
 <script>
 import axios  from  'axios'
- 
+
    function Theater(){
     return axios.get('/api/movie/coming_soon?&count=8');
   }
@@ -44,7 +44,7 @@ export default {
       }
     }
   },
-  mounted(){  
+  mounted(){
     const _this = this;
     axios.all([Theater(),ComingSoon(),Latest()])
     .then(axios.spread(function (theat,coming,latest){
@@ -71,7 +71,7 @@ a{
         font-size: 16px;
     }
     a{
-        color: #42bd56;
+        color: #f73e4a;
     }
 }
 .MovieList{

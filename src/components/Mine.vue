@@ -5,7 +5,7 @@
               <img :src="userImg" alt="">
               <div class="NameDetail">
                 <div class="BasicInfo">
-                  <p>浅浅时光</p>
+                  <p class="username">浅浅时光</p>
                   <p>
                     <span>ID:748648464</span>
                     <router-link :to="{name:'HomePage'}">个人主页 &gt;</router-link>
@@ -91,19 +91,19 @@ export default {
 // @fr:float:left
 
 .MyHeader{
-  height: 124px;
-  background: #42bd56;
+  height: 160px;
+  background: #f73e4a;
   .container{
    display: flex;
    color: #fff;
    justify-content: center;
    align-items: center;
    height:100%;
-   padding: 0 20px;
+   padding: 0 30px;
   img{
     border-radius: 50%;
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     border: 2px solid #fff
   }
   .NameDetail{
@@ -113,14 +113,17 @@ export default {
       color: #fff;
     }
     .BasicInfo{
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 10px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #fff;
       p{
+        line-height: 26px;
+        &.username{
+          font-size: 20px;
+        }
         span{
-        font-size: 12px;
+        font-size: 13px;
         }
         a{
-        font-size: 12px;
         float: right;
         }
       }
@@ -129,7 +132,7 @@ export default {
       margin-top: 10px;
     }
     a{
-      font-size: 12px;
+      font-size: 13px;
       margin-right: 10px;
     }
   }

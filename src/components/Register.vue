@@ -36,7 +36,7 @@ export default {
 h1{
      padding-top: 50px;
      text-align: center;
-     color:#42bd56;
+     color:#f73e4a;
      height: 45px;
      line-height: 45px;
  }
@@ -58,8 +58,8 @@ h1{
             }
             }
         .SubmitBtn{
-            border: 1px solid #17AA52;
-            background: #17AA52;
+            border: 1px solid #f73e4a;
+            background: #f73e4a;
             width: 100%;
             padding: 10px 26px;
             color: #fff;

@@ -46,7 +46,6 @@ methods: {
     const _this = this;
         axios.get('http://localhost:5566/static/comments.json').then(res =>{
         _this.comments = res.data;
-            console.log(res.data)
         })
     }
     }

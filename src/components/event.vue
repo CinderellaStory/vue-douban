@@ -3,8 +3,8 @@
   <div class="Event">
       <section>
         <div class="Poster">
-            <div class="PosterBg"></div>
-            <img v-lazy="items.image" alt="">
+            <div class="PosterBg" v-bind:style="{ 'background-image': 'url(' + items.image_lmobile + ')'}"></div>
+            <img :src="items.image" alt="">
         </div>
         <div class="EventInfo">
           <h2>{{items.title}}</h2>
@@ -41,7 +41,8 @@ export default {
   },
   created(){
     const _this = this;
-    axios.get('/api/event/30260491')
+    const id = this.$route.params.id;
+    axios.get('/api/event/'+id)
     .then(res=>{
       _this.items = res.data;
       console.log(res.data);
@@ -64,7 +65,7 @@ export default {
         overflow: hidden;
         position: relative;
         .PosterBg{
-          background:url("https://img3.doubanio.com/pview/event_poster/raw/public/85285a3defdcedd.jpg") center center no-repeat;
+          // background:url("https://img3.doubanio.com/pview/event_poster/raw/public/85285a3defdcedd.jpg") center center no-repeat;
           position: absolute;
           z-index: 0;
           left: -10px;
@@ -115,11 +116,15 @@ export default {
         }
       }
       .ActiveDeatil{
-        margin: 0 20px;
+        padding: 0 20px;
         color: #494949;
         font-size: 15px;
         padding-bottom: 60px;
         line-height: 24px;
+        p{
+            width: 100%;
+            overflow: hidden;
+        }
       }
     }
   }
