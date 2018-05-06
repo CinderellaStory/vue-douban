@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  .Event{
+.Event{
     section{
     h1{
       font-size: 16px;

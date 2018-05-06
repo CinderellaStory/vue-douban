@@ -95,9 +95,8 @@ import Topic from './Topic.vue'
 export default {
   data(){
       return{
-          subject:[
-
-          ],
+          subject:[],
+          classify: '',
           items:[
               {
                   images:'https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1432840050.06.jpg',
@@ -222,6 +221,7 @@ section{
             width: 26%;
             img{
                width: 100%;
+               border-radius: 10px;
             }
         }
     }

@@ -1,5 +1,6 @@
 <template>
   <div class="group">
+    <SearchInput></SearchInput>
     <div class="group2">
       <p class="find">428896个有趣的人</p>
       <p class="her">立即选择加入吧！</p>
@@ -23,6 +24,7 @@
 </template>
 <script>
 import axios from 'axios'
+import SearchInput from './Search/SearchInput.vue'
 
 export default {
   data(){
@@ -41,17 +43,24 @@ export default {
         array:{}
       }
   },
-    created(){
-        const _this = this; 
-          axios.get('http://localhost:5566/static/group.json').then(res =>{
-            _this.array= res.data;
-          })
-      }
+  created(){
+      const _this = this; 
+        axios.get('http://localhost:5566/static/group.json').then(res =>{
+          _this.array= res.data;
+        })
+    },
+  components:{
+    SearchInput
+  }
 }
 </script>
 
 <style lang="less" scoped>
-  .group{
+  .search{
+  margin-top: -56px;
+}
+.group{
+      margin-top: 56px;
     .group2{
       padding: 14px 0 10px 0;
       background-image: url(https://img3.doubanio.com/f/talion/fbcb08987a36258354c6037211d94286bef9716c/pics/card/promotion_bg.jpg);
@@ -71,26 +80,29 @@ export default {
       }
     }
     section{
-      margin:30px 0; 
+      margin:20px auto; 
+      width: 90%;
+      background: #fff;
+      border-radius: 10px;
       h6{
         text-align: center;
         color: #333;
         font-size: 16px;
-        margin: 20px;
+        padding: 20px 0;
         font-weight: normal;
         &::before{
           content: '';
-          width: 31%;
+          width: 32%;
           height: 1px;
-          margin-right: 30px;
+          margin-right: 20px;
           display: inline-block;
           vertical-align: middle;
           background: #c3c3c3;
         }
         &::after{
           content: '';
-          width: 31%;
-          margin-left: 30px;
+          width: 32%;
+          margin-left: 20px;
           height: 1px;
           display: inline-block;
           vertical-align: middle;
@@ -99,19 +111,17 @@ export default {
       }
       ul{
         li{
-        margin: 30px 20px;
+        padding: 0 14px 24px 14px;
           a{
             color: #494949;
             display: flex;
             justify-content: center;
             align-items: center;
             img{
-              width: 50px;
-              width: 15%;
-              height: 15%;
+              width: 20%;
             }
             .detail{
-              width: 64%;
+              width: 65%;
               display: inline-block;
               margin: 0 10px;
               h4{
@@ -127,7 +137,7 @@ export default {
                 overflow : hidden;
                 text-overflow: ellipsis;
                 display: -webkit-box;
-                -webkit-line-clamp: 2;
+                -webkit-line-clamp: 3;
                 margin-top: 4px;
                 -webkit-box-orient: vertical;
                 color: #ccc;
@@ -136,13 +146,13 @@ export default {
             }
             .AddBtn{
               display: inline-block;
-              // width: 20%;
+              width: 12%;
               border-radius: 4px;
               border: solid 1px #f73e4a;
               font-size: 14px;
               line-height: 1.2;
               color: #f73e4a;
-              padding: 5px 10px;
+              padding: 5px 6px;
               text-align: center;
             }
           }

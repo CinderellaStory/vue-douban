@@ -4,21 +4,21 @@
         <router-link v-for="(items,index) in subjects" :to="items.alt" :key="index" tag="li">
             <img v-lazy="items.images.medium" alt="">
             <div class="MovieText">
-                <div class="MovieTitle">{{items.title}}</div>
+                <div class="MovieTitle">{{items.title}}</div> 
                 <div class="director">
                     <p>导演2：{{items.directors[0].name}}</p>
                     <p>演员：<span v-for="(i,o) in items.casts" :key="o">{{items.casts[o].name}}/</span></p>
                 </div>  
             </div>
             <div class="DetailBtn">
-                <router-link :to="{name:'subject',params:{userId:items.id}}">{{DetailBtn}}</router-link>
+                <router-link :to="{name:'subject',params:{id:items.id}}">{{DetailBtn}}</router-link>
             </div>
         </router-link>
     </div>
 </template>
 <script>
 import prince from './prince';
-import rose from './rose';
+import rose from './rose'; 
 
 export default {
   data(){
@@ -48,6 +48,7 @@ a{
 img{
     width: 100px;
     height: 140px;
+    border-radius: 10px;
 }
 .CategoryTitle{
     justify-content: space-between;
@@ -64,8 +65,11 @@ img{
 .MovieList{
     li{
         display: flex;
-    padding: 15px 14px;
-    border-bottom: 1px solid #e4e4e4;
+        padding: 15px 14px;
+        border-bottom: 1px solid #e4e4e4;
+        background: #fff;
+        border-radius: 20px;
+        margin: 14px;
         .DetailBtn{
         display: flex;
         justify-content: center;

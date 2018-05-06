@@ -28,7 +28,7 @@
     .dialog-tips-icon{
         width: 54px;
         height: 54px;
-        @extend %bg-contain;
+        // @extend %bg-contain;
         display: inline-block;
         margin-bottom: 13px;
     }

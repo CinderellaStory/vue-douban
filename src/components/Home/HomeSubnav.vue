@@ -37,7 +37,7 @@ export default {
 
 <style lang="less" scoped>
 .HomeSubnav{
-    margin: 20px 0;
+    margin-top: 56px;
     overflow: hidden;
     a{
         width: 48%;

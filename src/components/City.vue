@@ -45,12 +45,15 @@ export default {
 <style scoped lang="less">
 .city{
     section{
-        margin-bottom: 10px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 4px 14px 4px 14px;
+  margin-bottom: 20px;
     .CategoryTitle{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0px;
+    padding: 10px 0px;
     .CinemaHot{
         font-size: 16px;
     }
@@ -64,13 +67,13 @@ export default {
         overflow-x: auto;
         li{
             flex: 1;
-            width: 100px;
+            width: 110px;
             text-align: center;
             margin-right: 10px;
             color: #111;
                 img{
-                    width: 100px;
-                    height: 142px;
+                    width: 110px;
+                    height: 160px;
                     display: inline-block
                 }
                 p{

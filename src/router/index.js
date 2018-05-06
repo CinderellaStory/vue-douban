@@ -143,7 +143,7 @@ export default new Router({
     ]
     },
     {
-      path: '/subject/:id',
+      path: '/movie/subject/:id',
       name: 'subject',
       component: subject
     },

@@ -11,15 +11,15 @@
 export default {
   data(){
       return{
-          tags:[
-              {text:'科幻',to:''},
-              {text:'怪兽',to:''},
-              {text:'美国',to:''},
-              {text:'动作',to:''},
-              {text:'灾难',to:''},
-              {text:'2018',to:''},
-              {text:'冒险',to:''}
-          ]
+        //   tags:[
+        //       {text:'科幻',to:''},
+        //       {text:'怪兽',to:''},
+        //       {text:'美国',to:''},
+        //       {text:'动作',to:''},
+        //       {text:'灾难',to:''},
+        //       {text:'2018',to:''},
+        //       {text:'冒险',to:''}
+        //   ]
       }
   },
   components:{
@@ -32,13 +32,14 @@ export default {
 .tags{
     li{
         background: #f5f5f5;
+        border:1px solid #f73e4a;
         border-radius: 28px;    
         padding: 0px 16px;
         margin: 6px 10px;
         display: inline-block;
         line-height: 28px;
         a{
-        color: #494949;
+        color: #f73e4a;
         font-size: 15px;
         }
     }

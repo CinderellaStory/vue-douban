@@ -5,7 +5,7 @@
             <router-link to="/CinemaMore/fox">即将上映</router-link>
             <router-link to="/CinemaMore/rose">免费观看2</router-link>
         </div>  
-        <div>
+        <div class="MoreList">
             <router-view></router-view>
         </div>
     </div>
@@ -21,6 +21,7 @@ img{
 }
 .tabs {
     display: flex;
+    background: #fff;
 a{
     flex: 1;
     color: #999;

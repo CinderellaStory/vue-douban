@@ -1,42 +1,46 @@
 <template>
   <div class="broadcast">
-    <div class="group">
-      <p class="find">发现有趣的人</p>
-      <p class="her">关注他们，发现更大的世界</p>
-    </div>
+    <SearchInput></SearchInput>
      <!-- <div class="loading">
         <img src="../assets/loading_green.gif" alt="loading">
     </div> -->
-    <ul>
-      <li v-for="(item,index) in items" :key="index">
-        <a href="">
-          <div class="Info">
-            <div class="avatar">
-              <img v-lazy="item.avatar">
-            </div>
-            <div class="detail">
-              <h4>{{item.title}}</h4>
-              <p>{{item.fllow}}人关注</p>
-            </div>
-            <div class="FloowBtn">{{item.FloowBtn}}</div>
-          </div>
-          <div class="container">
-            <p>{{item.article}}</p>
-            <div class="photos">
-              <img v-lazy="item.photos">
-            </div>
-            <div class="others">
-              <span class="praise">{{item.number}}</span>
-              <span class="review">{{item.review}}</span>
-            </div>
-          </div>
-        </a>
-      </li>
-    </ul>
+      <div class="group">
+        <p class="find">发现有趣的人</p>
+        <p class="her">关注他们，发现更大的世界</p>
+      </div>
+    <div class="BroadcastList">
+      <ul>
+          <li v-for="(item,index) in items" :key="index">
+            <a href="">
+              <div class="Info">
+                <div class="avatar">
+                  <img v-lazy="item.avatar">
+                </div>
+                <div class="detail">
+                  <h4>{{item.title}}</h4>
+                  <p>{{item.fllow}}人关注</p>
+                </div>
+                <div class="FloowBtn">{{item.FloowBtn}}</div>
+              </div>
+              <div class="container">
+                <p>{{item.article}}</p>
+                <div class="photos">
+                  <img v-lazy="item.photos">
+                </div>
+                <div class="others">
+                  <span class="praise">{{item.number}}</span>
+                  <span class="review">{{item.review}}</span>
+                </div>
+              </div>
+            </a>
+          </li> 
+        </ul>
+    </div>
   </div>
 </template>
 <script>
 import axios from 'axios'
+import SearchInput from './Search/SearchInput.vue'
 
 export default {
   data(){
@@ -55,14 +59,21 @@ export default {
           console.log(res);
         })
     }
+  },
+  components:{
+    SearchInput
   }
 }
 </script>
 
 <style lang="less" scoped>
+.search{
+  margin-top: -56px;
+}
   .broadcast{
     background: #f6f6f6;
     .group{
+      margin-top: 56px;
       padding: 18px 0 10px 0;
       background-image: url(https://img3.doubanio.com/f/talion/fbcb08987a36258354c6037211d94286bef9716c/pics/card/promotion_bg.jpg);
       background-size: 100%;
@@ -79,6 +90,7 @@ export default {
         }
       }
     }
+    .BroadcastList{
     ul{
       li{
         width: 80%;
@@ -163,6 +175,7 @@ export default {
           }
         }
       }
+    }
     }
   }
 </style>

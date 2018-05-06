@@ -30,12 +30,12 @@ html{
 }
 *{padding: 0;margin: 0;}
 body,div{font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;}
-.content{padding:10px 10px 0 10px; }
+.content{padding:10px 14px 0 14px; }
 h3{
   font-weight: normal
 }
 body{
-  background: #fff;
+  background: #f6f6f6;
   display: flex;
     flex-direction: column;
     height: 100%;

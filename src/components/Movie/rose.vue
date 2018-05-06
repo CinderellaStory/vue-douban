@@ -11,7 +11,7 @@
                 </div>  
             </div>
             <div class="DetailBtn">
-                <router-link :to="{name:'subject',params:{userId:items.id}}">{{DetailBtn}}</router-link>
+                <router-link :to="{name:'subject',params:{id:items.id}}">{{DetailBtn}}</router-link>
             </div>
         </router-link>
     </div>
@@ -58,8 +58,11 @@ img{
 .MovieList{
     li{
         display: flex;
-    padding: 15px 14px;
-    border-bottom: 1px solid #e4e4e4;
+        padding: 15px 14px;
+        border-bottom: 1px solid #e4e4e4;
+        background: #fff;
+        border-radius: 20px;
+        margin: 14px;
         .DetailBtn{
         display: flex;
         justify-content: center;

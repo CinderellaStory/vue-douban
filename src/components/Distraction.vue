@@ -1,10 +1,11 @@
 //娱乐 Distraction
 <template>
   <div class="Distraction">
+    <SearchInput></SearchInput>
     <div class="BMMheader">
       <ul>
         <router-link :class="item.class" v-for="(item,index) in NavData" :key="index" :to="item.to" tag="li">
-                {{item.text}}
+            {{item.text}}
         </router-link>
        </ul>
     </div>
@@ -18,6 +19,7 @@ import books from './books'
 import movie from './movie'
 import music from './music'
 import City from './City'
+import SearchInput from './Search/SearchInput.vue'
 
 export default {
   data(){
@@ -43,13 +45,13 @@ export default {
       }
   },
   components:{
-
+    SearchInput
   }
 }
 </script>
 
 <style lang="less" scoped>
-.router-link-exact-active{color: #000 !important; border-bottom: 1px solid #000}
+.router-link-exact-active{color: #000 !important; font-weight: bold; border-bottom: 1px solid #000}
   .BMMheader {
     height: 40px;
   ul{
@@ -58,8 +60,8 @@ export default {
      position: fixed;
      left: 0;
      right: 0;
-     top: 0;
-     border-bottom: 1px solid #f3f3f3;
+    top: 56px;
+    border-bottom: 1px solid #f3f3f3;
      background: #fff;
      li{ 
       text-decoration: none; 
@@ -82,5 +84,8 @@ export default {
             color: #2AB8CC;
       }
   }
+  }
+  .DistractionContent{
+    margin-top: 65px;
   }
 </style>

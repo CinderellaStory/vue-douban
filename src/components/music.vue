@@ -2,13 +2,13 @@
 <template>
     <div class="movie">
          <div class="content">
-             <div class="Theater" v-for="(items,index) in data" :key="index">
+             <div class="list-item" v-for="(items,index) in data" :key="index">
                <div class="CategoryTitle">
                       <div class="CinemaHot">{{title[index]}}</div>
                       <router-link to="CinemaMore/prince">更多</router-link>
                   </div>
                 <div class="MovieList">
-                    <router-link v-for="(list,i) in items" :key="i" :to="list.alt">
+                    <router-link v-for="(list,i) in items" :key="i" :to="list.alt" tag="li">
                         <img v-lazy="list.image" alt=""> 
                         <div class="MovieText">{{list.title}}</div>
                     </router-link>
@@ -55,34 +55,35 @@ a{
     text-decoration: none;
 }
 img{
-    width: 100px;
-    height: 142px;
-    display: inline-block
+    width: 110px;
+    height: 160px;
+    display: inline-block;
+    border-radius: 10px;
 }
-.Theater{
+.list-item{
+  background: #fff;
   .CategoryTitle{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 10px;
+    padding: 14px 16px 0;
     .CinemaHot{
         font-size: 16px;
     }
     a{
-        color: #42bd56;
+        color: #f73e4a;
     }
 }
 .MovieList{
-
     display: flex;
     overflow-x: auto;
-    padding: 15px 0 20px 10px;
-    a{
+    padding: 15px 0 14px 16px;
+    li{
         flex: 1;
         text-align: center;
-        margin-right: 0.48rem;
+        margin-right: 10px;
         color: #111;
-        width: 100px;
+        width: 110px;
         .MovieText{
         word-break: keep-all;
         white-space: nowrap;

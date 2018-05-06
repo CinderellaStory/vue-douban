@@ -1,21 +1,36 @@
 <template>
   <div class="Home">
-       <Search></Search>
+    <SearchInput @showTalion="open"></SearchInput>
+    <Talion v-show="talion" @closeTalion="close"></Talion>
      <div class="content">
        <HomeSubnav></HomeSubnav>
        <HomeList></HomeList>
      </div>
   </div>
 </template>
-
+ 
 <script>
-import Search from './Search.vue'
 import HomeSubnav from './Home/HomeSubnav.vue'
 import HomeList from './Home/HomeList.vue'
+import SearchInput from './Search/SearchInput.vue'
+import Talion from './Search/Talion.vue'
 
 export default {
   components:{
-    HomeSubnav,HomeList,Search
+    HomeSubnav,HomeList,SearchInput,Talion
+  },
+  data(){
+    return{
+      talion: ''
+    }
+  },
+  methods:{
+    open(){
+      this.talion = 'open'
+    },
+    close(){
+      this.talion = ''
+    }
   }
 }
 </script>

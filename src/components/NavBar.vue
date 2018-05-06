@@ -48,7 +48,7 @@ export default {
      position: fixed;
      left: 0;
      right: 0;
-     bottom: 0;
+     bottom: -2px;
      border-top: 1px solid #f3f3f3;
      background: #fff;
      li{ 

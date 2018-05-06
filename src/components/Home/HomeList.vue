@@ -114,6 +114,7 @@ export default {
         img{ 
             width: 80%;
             height: 120px;
+               border-radius: 10px;
          }
     }
     .ArticleFooter{

@@ -1,16 +1,18 @@
 <template>
      <div class="books">
-          <div class="content" v-for="(items,index) in data" :key="index">
-            <div class="CategoryTitle">
+          <div class="content">
+            <div class="list-item" v-for="(items,index) in data" :key="index">
+                <div class="CategoryTitle">
                     <div class="title">{{title[index]}}</div>
                     <router-link to="BookMore/BookFiction">更多</router-link>
                 </div>
                 <div class="BookList">
-                    <router-link v-for="(list,i) in items" :to="{name:'subject',params:{id:list.id}}" :key="i">
+                    <router-link v-for="(list,i) in items" tag="li" :to="{name:'subject',params:{id:list.id}}" :key="i">
                         <img v-lazy="list.images.large" alt="">
                         <div class="BookText">{{list.title}}</div>
                     </router-link>
                 </div>
+            </div>
           </div> 
      </div>
  </template>
@@ -60,22 +62,22 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 10px;
+    padding: 14px 16px 0;
     .CinemaHot{
         font-size: 16px;
     }
     a{
-        color: #42bd56;
+        color: #f73e4a;
     }
     }
  .BookList{
      display: flex;
      overflow-x: auto;
-     padding: 15px 0 20px 0;
-     a{
+    padding: 15px 0 14px 16px;
+     li{
          flex: 1;
          text-align: center;
-         margin-right: 0.48rem;
+         margin-right: 10px;
          color: #111;
          width: 100px;
          .BookText{

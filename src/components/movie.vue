@@ -2,7 +2,7 @@
 <template>
     <div class="movie">
          <div class="content">
-             <div class="Theater" v-for="(items,index) in data" :key="index">
+             <div class="list-item" v-for="(items,index) in data" :key="index">
                <div class="CategoryTitle">
                       <div class="CinemaHot">{{title[index]}}</div>
                       <router-link to="CinemaMore/prince">更多</router-link>
@@ -20,10 +20,10 @@
 <script>
 import axios  from  'axios'
 
-   function Theater(){
+  function Theater(){
     return axios.get('/api/movie/coming_soon?&count=8');
   }
-   function ComingSoon(){
+  function ComingSoon(){
     return axios.get('/api/movie/in_theaters?&count=8');
   }
   function Latest(){
@@ -61,12 +61,16 @@ a{
     text-decoration: none;
 }
 
-.Theater{
+.list-item{
+  background: #fff;
+  border-radius: 10px;
+  padding-right: 14px;
+  margin-bottom: 20px;
   .CategoryTitle{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 10px;
+    padding: 14px 16px 0;
     .CinemaHot{
         font-size: 16px;
     }
@@ -77,17 +81,18 @@ a{
 .MovieList{
     display: flex;
     overflow-x: auto;
-    padding: 15px 0 20px 10px;
+    padding: 15px 0 14px 16px;
     li{
         flex: 1;
         text-align: center;
         margin-right: 10px;
         color: #111;
-        width: 100px;
+        width: 110px;
         img{
-            width: 100px;
+            width: 110px;
             height: 142px;
-            display: inline-block
+            display: inline-block;
+            border-radius: 10px;
         }
         .MovieText{
         word-break: keep-all;
@@ -95,6 +100,7 @@ a{
         overflow: hidden;
         width: 100%;
         font-size: 14px;
+        margin-top: 6px;
         text-overflow: ellipsis;
         }
     }
