@@ -104,7 +104,7 @@
         </section>
         <section>
             <h4>豆瓣正在热议</h4>
-            <Topic :message="parentMsg"></Topic>
+            <Topic @childEvent="parentMethod"></Topic>
         </section>
       </div>
     </div>
@@ -120,9 +120,9 @@ import axios  from  'axios'
 export default {
   data(){
       return{
-          subject:[],
+          subject:['hfkdddddddah'],
           classify: '',
-          parentMsg:'hfkah'
+          parentMsg:'hfkdddddddah'
          }
       },
   mounted(){
@@ -141,13 +141,16 @@ export default {
                 _this.subject = res.data;
                 // console.log(res.data.trailers)
                 _this.subject.subjectMeta = 
-                json.durations + ' / ' +
-                json.genres.join(' / ') + ' / ' +
-                json.directors.map(item => item.name).join('(导演) / ') + '(导演) / ' +
-                json.casts.map(item => item.name).join(' / ') + ' / ' +
-                json.pubdates[2] + ' 上映 ' 
+                res.data.durations + ' / ' +
+                res.data.genres.join(' / ') + ' / ' +
+                res.data.directors.map(item => item.name).join('(导演) / ') + '(导演) / ' +
+                res.data.casts.map(item => item.name).join(' / ') + ' / ' +
+                res.data.pubdates[2] + ' 上映 ' 
             })
-      }
+      },
+       parentMethod() {
+            alert(this.subject);
+        },
   }
 }
 </script>

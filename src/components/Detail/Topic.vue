@@ -21,14 +21,14 @@
 import axios from 'axios'
 
 export default {
-  props:["message"],
   data(){
       return{
           items:[]
       }
   },
    mounted() {
-      this.getContent()
+      this.getContent(),
+      this.$emit('childEvent');
     },
     methods: {
       getContent(){
