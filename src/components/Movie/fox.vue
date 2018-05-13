@@ -6,7 +6,7 @@
             <div class="MovieText">
                 <div class="MovieTitle">{{items.title}}</div> 
                 <div class="director">
-                    <p>导演2：{{items.directors[0].name}}</p>
+                    <p>导演：{{items.directors[0].name}}</p>
                     <p>演员：<span v-for="(i,o) in items.casts" :key="o">{{items.casts[o].name}}/</span></p>
                 </div>  
             </div>
@@ -33,7 +33,7 @@ export default {
         },
       created(){
         const _this = this;
-        this.$jsonp('https://api.douban.com/v2/movie/coming_soon')
+        this.$jsonp('https://api.douban.com/v2/movie/coming_soon?apikey=0b2bdeda43b5688921839c8ecb20399b&city=%E5%8C%97%E4%BA%AC&start=0&count=30&client=somemessage&udid=dddddddddddddddddddddd')
         .then(json=>{
             _this.subjects =json.subjects
         })

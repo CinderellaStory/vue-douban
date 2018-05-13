@@ -13,11 +13,11 @@ export default {
         navs:[
             {
                 text:"注册账号",
-                to:'login'
+                to:'Register'
             },
             {
                 text:"登录豆瓣",
-                to:'Register'
+                to:'login'
             },
             {
                 text:"使用桌面版",
@@ -40,7 +40,7 @@ export default {
     ul{
         li{
             width: 50%;
-            font-size: 18px;
+            font-size: 14px;
             display: inline-block;   
             box-sizing: border-box;
             text-align: center;

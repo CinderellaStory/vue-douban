@@ -45,7 +45,7 @@ export default {
   },
   created(){
       const _this = this; 
-        axios.get('http://localhost:5566/static/group.json').then(res =>{
+        axios.get('http://0.0.0.0:5566/static/group.json').then(res =>{
           _this.array= res.data;
         })
     },
@@ -118,7 +118,8 @@ export default {
             justify-content: center;
             align-items: center;
             img{
-              width: 20%;
+              width: 61px;
+              height:61px;
             }
             .detail{
               width: 65%;

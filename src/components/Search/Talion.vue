@@ -158,16 +158,16 @@ color: rgb(159, 120, 96);
         line-height: 60px;
         border-bottom: 1px solid #f3f3f3;
         width: 100%;
+       padding:0 20px 0 20px;
         span{
-             width: 10%;
             display: inline-block;
-            padding:0 10px 0 20px;
+            padding-right:10px;
             color: #f73e4a;
-            font-size: 18px;
+            font-size: 14px;
             vertical-align: middle;
         }
         form{
-           width: 72%;
+           width: 68%;
              display: inline-block;
             input{
                 height: 36px;
@@ -188,10 +188,10 @@ color: rgb(159, 120, 96);
                 text-align: center;
                 margin-bottom: 30px;
                 .name{
-                    font-size: 28px;
+                    font-size: 24px;
                 }
                 .genre{
-                    font-size: 13px;
+                    font-size: 12px;
                     color: #999;
                 }
             }

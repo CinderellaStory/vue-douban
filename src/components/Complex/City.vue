@@ -34,10 +34,10 @@ export default {
         },
         created(){
             const _this = this;
-            axios.get('http://localhost:5566/static/city.json')
+            axios.get('http://0.0.0.0:5566/static/city.json')
             .then(json =>{
                 _this.subjects =json.data
-            })
+        })
     }
 }
 </script>

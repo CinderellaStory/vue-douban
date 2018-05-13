@@ -24,6 +24,7 @@ export default {
 
 <style lang="less" scoped>
 .search {
+    z-index: 1;
     background: #f73e4a;
     height: 56px;
     display: flex;

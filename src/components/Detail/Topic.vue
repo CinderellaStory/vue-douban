@@ -1,15 +1,16 @@
 <template>
   <div class="Topic">
+        <p>{{message}}</p>
       <ul>
-          <li v-for="(item,index) in items">
+          <li v-for="(item,index) in items.reviews" :key="index">
              <a href="" class="ov">
                  <div class="fl">
-                     <p class="title">{{item.title}}</p>
-                     <p class="container">{{item.container}}</p>
-                     <p class="number">{{item.number}}人浏览</p>
+                     <p class="title">{{item.author.name}}</p>
+                     <p class="container">{{item.content}}</p>
+                     <p class="number">{{item.useful_count}}人浏览</p>
                  </div>
                  <div class="fr">
-                     <img v-lazy="item.pic" alt="">
+                     <img v-lazy="item.author.avatar" alt="">
                  </div>
              </a>
           </li>
@@ -20,20 +21,23 @@
 import axios from 'axios'
 
 export default {
+  props:["message"],
   data(){
       return{
           items:[]
       }
   },
-   mounted () {
+   mounted() {
       this.getContent()
     },
     methods: {
       getContent(){
         const _this = this;
-          axios.get('http://localhost:5566/static/Topic.json').then(res =>{
+            const id = this.$route.params.id;
+          axios.get('api/movie/subject/'+id+'/reviews?apikey=0b2bdeda43b5688921839c8ecb20399b&start=0&count=20&client=something&udid=dddddddddddddddddddddd').then(res =>{
             _this.items= res.data;
           })
+            console.log(this.items)
       }
       }
 }
@@ -65,13 +69,17 @@ export default {
                             color: #999;
                             font-size: 13px;
                             margin-bottom: 10px;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 3;
+                            overflow: hidden;
                         }
                     }
                     .fr{
-                        width: 20%;
+                        width: 16%;
                         img{
-                             width: 100%;
-                             height: 100px;
+                             width: 54px;
+                             height: 54px;
                         }
                     }
                 }

@@ -40,7 +40,7 @@ export default {
     margin-top: 56px;
     overflow: hidden;
     a{
-        width: 48%;
+        width: 47%;
         background: #f6f6f6;
         text-align: center;
         padding: 10px;

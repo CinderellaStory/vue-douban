@@ -1,18 +1,18 @@
 <template>
-  <div class="comments">
+  <div class="reviews">
       <ul>
-          <li v-for="(comment,index) in comments" :key="index">
+          <li v-for="(comment,index) in items.reviews" :key="index">
                <div class="desc">
                     <a href="">
-                        <img v-lazy="comment.pic" alt="">
+                        <img v-lazy="comment.author.avatar" alt="">
                     </a>
                     <div class="user-info">
-                        <strong>{{comment.user}}</strong>
-                        <p>{{comment.times}}</p>
+                        <strong>{{comment.author.name}}</strong>
+                        <p>{{comment.created_at}}</p>
                     </div>
                 </div>
                 <p>
-                    {{comment.detail}}
+                    {{comment.content}}
                 </p>
                 <div class="btn-info ov">
                     <div class="praise fl">
@@ -25,7 +25,6 @@
               <a href="">{{all}}</a>
           </li>
       </ul>
-        
   </div>
 </template>
 <script>
@@ -35,7 +34,7 @@ export default {
   data(){
       return{
           all:'查看所有短评',
-          comments:[]
+          items:[]
       }
   },
  mounted () {
@@ -44,8 +43,8 @@ export default {
 methods: {
     getContent(){
     const _this = this;
-        axios.get('http://localhost:5566/static/comments.json').then(res =>{
-        _this.comments = res.data;
+        axios.get('api/movie/subject/24773958/reviews?apikey=0b2bdeda43b5688921839c8ecb20399b&start=0&count=20&client=something&udid=dddddddddddddddddddddd').then(res =>{
+        _this.items = res.data;
         })
     }
     }
@@ -62,7 +61,7 @@ methods: {
 .ov{
     overflow: hidden;
 }
-    .comments{
+    .reviews{
         li{
             padding: 15px 18px 15px 0;
             .desc{

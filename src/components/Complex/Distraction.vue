@@ -15,11 +15,7 @@
   </div>
 </template>
 <script>
-import books from './books'
-import movie from './movie'
-import music from './music'
-import City from './City'
-import SearchInput from './Search/SearchInput.vue'
+import SearchInput from '../Search/SearchInput.vue'
 
 export default {
   data(){

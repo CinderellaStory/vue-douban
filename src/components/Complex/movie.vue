@@ -40,7 +40,7 @@ export default {
       title:{
         theat:'院影热线',
         coming:"正在上映",
-        latest:'新片速递'
+        latest:'Top250'
       }
     }
   },

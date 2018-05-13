@@ -6,17 +6,15 @@ import Register from '@/components/Register'
 import RecoverPassword from '@/components/RecoverPassword'
 
 import home from '@/components/home'
-import Distraction from '@/components/Distraction'
+import Distraction from '@/components/Complex/Distraction'
 import broadcast from '@/components/broadcast'
 import Group from '@/components/Group'
 import Mine from '@/components/Mine'
 
-import books from '@/components/books'
-import movie from '@/components/movie'
-import music from '@/components/music'
-import City from '@/components/City'
-
-
+import books from '@/components/Complex/books'
+import movie from '@/components/Complex/movie'
+import music from '@/components/Complex/music'
+import City from '@/components/Complex/City'
 
 import BookMore from '@/components/Book/BookMore'
 import hotfiction from '@/components/Book/hotfiction'
@@ -29,8 +27,9 @@ import rose from '@/components/Movie/rose'
 import fox from '@/components/Movie/fox'
 import prince from '@/components/Movie/prince'
 
-import subject from '@/components/subject'
+import subject from '@/components/Detail/subject'
 import event from '@/components/event'
+import trailer from '@/components/Detail/trailer'
 
 import fllowed from '@/components/Mine/fllowed'
 import fllower from '@/components/Mine/fllower'
@@ -151,6 +150,11 @@ export default new Router({
       path:'/event/:id',
       name: 'event',
       component:event
+     },
+     {
+      path:'/trailer/:id',
+      name: 'trailer',
+      component:trailer
      },
     {
       path:'/Mine/fllowed',

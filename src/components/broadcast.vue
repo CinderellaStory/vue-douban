@@ -54,7 +54,7 @@ export default {
   methods:{
     getContent(){
       const _this = this;
-        axios.get('http://localhost:5566/static/broadcast.json').then(res =>{
+        axios.get('http://0.0.0.0:5566/static/broadcast.json').then(res =>{
           _this.items= res.data;
           console.log(res);
         })

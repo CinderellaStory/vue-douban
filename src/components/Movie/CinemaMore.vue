@@ -20,7 +20,10 @@ img{
     display: inline-block
 }
 .tabs {
-    display: flex;
+   top: 0;
+    position: fixed;
+    width: 100%;
+     display: flex;
     background: #fff;
 a{
     flex: 1;
@@ -49,6 +52,7 @@ a{
 }
 
 .MovieList{
+    margin-top: 64px;
     a{
         display: flex;
     padding: 15px 20px;

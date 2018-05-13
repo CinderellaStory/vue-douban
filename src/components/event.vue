@@ -45,7 +45,7 @@ export default {
     axios.get('/api/event/'+id)
     .then(res=>{
       _this.items = res.data;
-      console.log(res.data);
+      // console.log(_this.items.content)
     })
   }
 }
@@ -57,7 +57,7 @@ export default {
     h1{
       font-size: 16px;
       color: #494949;
-      margin: 10px 0 20px; 
+      margin: 10px 0 10px; 
       }
       .Poster{
         height: 200px;
@@ -101,7 +101,9 @@ export default {
       .btn{
         display: flex;
         text-align: center;
-        margin: 20px 10px;
+        padding: 20px 10px;
+        margin-top: 10px;
+        background: #fff;
         button{
           flex: 1;
           border: 1px solid #FCB42E;
@@ -119,6 +121,9 @@ export default {
         padding: 0 20px;
         color: #494949;
         font-size: 15px;
+        background: #fff;
+        margin-top: 20px; 
+        padding-top: 2px; 
         padding-bottom: 60px;
         line-height: 24px;
         p{
