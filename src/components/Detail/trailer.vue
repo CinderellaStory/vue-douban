@@ -39,7 +39,7 @@ export default {
     axios.get('/api/movie/subject/24773958?apikey=0b2bdeda43b5688921839c8ecb20399b&city=%E5%8C%97%E4%BA%AC&client=something&udid=dddddddddddddddddddddd')
         .then(res =>{
             _this.subjects = res.data;
-            console.log(res.data.trailers)
+            // console.log(res.data.trailers)
         })
   }
 }

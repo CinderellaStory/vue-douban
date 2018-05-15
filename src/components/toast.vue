@@ -18,8 +18,7 @@
 .dialog-tips{
     position: fixed;
     z-index: 100;
-    min-width: 160px;
-    padding: 16px;
+    padding: 16px 20px;
     white-space: nowrap;
     background: #000;
     opacity: 0.8;
@@ -28,7 +27,6 @@
     .dialog-tips-icon{
         width: 54px;
         height: 54px;
-        // @extend %bg-contain;
         display: inline-block;
         margin-bottom: 13px;
     }
@@ -37,8 +35,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    div{
+       border-radius: 10px;
+        div{
         color:#fff;
+        font-size: 18px;
     }
 }
 

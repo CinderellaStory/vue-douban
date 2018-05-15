@@ -49,7 +49,7 @@ export default {
           var d = this.LoginInfo.LoginPwd;
            if(a===b&&c===d){
                 console.log(data.LoginUser.username);
-                this.$toast("恭喜登录成功！");
+                this.$toast("恭喜登录成功!");
                 this.$router.push({ path: '/mine' });
             }
             else{

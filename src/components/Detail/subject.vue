@@ -11,9 +11,10 @@
                 <rating :rating="subject.rating"></rating>
                 <span>{{subject.ratings_count}}人评价</span>
             </p>
-            <p>
-                {{subject.subjectMeta}}
-            </p>
+            <p>原名：{{subject.original_title}}</p>
+            <p>{{subject.subjectMeta}}</p>
+            <p>上映时间：{{subject.pubdate}}</p>
+            <p>片长：{{subject.durations[0]}}</p>
             </div>
         </section>
         <section>
@@ -44,55 +45,15 @@
         </section>
         <section>
              <h4>查看更多豆瓣高分电影电视剧</h4>
-             <div class="tags">
-                <ul>
-                    <li v-for="(tag,index) in subject.tags" :key="index">
-                        <a href="">{{tag}}</a>
-                    </li>
-                </ul>
-            </div>
+             <tags :list="tags"></tags>
         </section>
         <section>
-            <h4>狂暴巨兽的预告片和图片</h4>
-            <div class="pics">
-                <ul>
-                    <li class="video" v-for="(bg,b) in subject.trailers" :key="b" v-bind:style="{'background-image':'url('+bg.medium+')'}">
-                        <router-link :to="{name:'trailer',params:{id:bg.id}}">
-                            <span><img src="https://img3.doubanio.com/f/talion/b6df390a5411896e81ad9be86a97121c17d4c805/pics/card/play-button.png" alt=""></span>
-                        </router-link>
-                    </li>
-                </ul>
-            </div>
+            <h4>{{subject.title}}的预告片和图片</h4>
+            <trailers :list="trailers"></trailers>
         </section>
         <section>
             <h4>{{subject.title}}的短评</h4>
-             <div class="comments">
-                <ul>
-                    <li v-for="(comment,index) in subject.popular_reviews" :key="index">
-                        <div class="desc">
-                            <a href="">
-                                <img v-lazy="comment.author.avatar" alt="">
-                            </a>
-                            <div class="user-info">
-                                <strong>{{comment.author.name}}</strong>
-                                <p>{{comment.summary}}</p>
-                            </div>
-                        </div>
-                        <p>
-                            {{comment.detail}}
-                        </p>
-                        <div class="btn-info ov">
-                            <div class="praise fl">
-                                <span class="">{{subject.comments_count}}</span>
-                            </div>
-                            <div class="more fr"></div>
-                        </div>
-                    </li>
-                    <li class="CommentAll">
-                        <a href="">{{all}}</a>
-                    </li>
-                </ul>
-            </div>
+            <popularreviews :list="popular_reviews"></popularreviews>
         </section>
         <section>
             <h4>了解更多电影信息</h4>
@@ -104,7 +65,7 @@
         </section>
         <section>
             <h4>豆瓣正在热议</h4>
-            <Topic @childEvent="parentMethod"></Topic>
+            <popularcomments :list="popular_comments"></popularcomments>
         </section>
       </div>
     </div>
@@ -113,44 +74,64 @@
 import marking from './marking.vue'
 import Rating from './Rating.vue'
 import sort from './sort.vue'
+import tags from './tags.vue'
+import trailers from './trailers.vue'
 import interests from './interests.vue'
-import Topic from './Topic.vue'
+import popularcomments from './PopularComments.vue'
+import popularreviews from './PopularReviews.vue'
 import axios  from  'axios'
 
 export default {
+  name:'subject',
   data(){
       return{
-          subject:['hfkdddddddah'],
+          subject:[],
           classify: '',
-          parentMsg:'hfkdddddddah'
+          popular_comments:[],
+          tags:[],
+          trailers:[],
+          popular_reviews:[]
          }
       },
   mounted(){
       this.subjectMeta();
   },
-  components:{
-      marking,sort,interests,Topic,Rating
-    //   comments,
-  },
   methods:{
       subjectMeta(){
-           const _this = this;
+          const _this = this;
             const id = this.$route.params.id;
+            // axios.get('/api/movie/subject/'+id+'?apikey=0b2bdeda43b5688921839c8ecb20399b&city=%E5%8C%97%E4%BA%AC&client=something&udid=dddddddddddddddddddddd')
+            // .then(res =>{
+            //     res = res.data
+            //     _this.subject = res
+            //     _this.popular_reviews = res.popular_reviews
+            //     _this.subject.subjectMeta = 
+            //     res.durations + ' / ' +
+            //     res.genres.join(' / ') + ' / ' +
+            //     res.directors.map(item => item.name).join('(导演) / ') + '(导演) / ' +
+            //     res.casts.map(item => item.name).join(' / ') + ' / ' +
+            //     res.pubdates[2] + ' 上映 ' 
+            // })
             axios.get('/api/movie/subject/'+id+'?apikey=0b2bdeda43b5688921839c8ecb20399b&city=%E5%8C%97%E4%BA%AC&client=something&udid=dddddddddddddddddddddd')
-            .then(res =>{
-                _this.subject = res.data;
-                // console.log(res.data.trailers)
-                _this.subject.subjectMeta = 
-                res.data.durations + ' / ' +
-                res.data.genres.join(' / ') + ' / ' +
-                res.data.directors.map(item => item.name).join('(导演) / ') + '(导演) / ' +
-                res.data.casts.map(item => item.name).join(' / ') + ' / ' +
-                res.data.pubdates[2] + ' 上映 ' 
-            })
-      },
-       parentMethod() {
-            alert(this.subject);
-        },
+            .then(this.getInfo)
+            },
+            getInfo (res){
+                const _this = this
+                   _this.subject = res.data
+                    _this.subject.subjectMeta = 
+                    res.data.year+'/'+
+                    res.data.genres.join(' / ') + ' / ' +
+                    res.data.directors.map(item => item.name).join('(导演) / ') + '(导演) / ' +
+                    res.data.casts.map(item => item.name).join(' / ')
+                   _this.popular_comments = res.data.popular_comments
+                   _this.tags = res.data.tags
+                   _this.trailers = res.data.trailers
+                   _this.popular_reviews = res.data.popular_reviews
+                   console.log(res.data.popular_reviews)
+              }
+  },
+  components:{
+      marking,sort,interests,popularcomments,Rating,tags,trailers,popularreviews
   }
 }
 </script>
@@ -184,9 +165,9 @@ section{
     .Detail{
         .DetailInfo{
             p{
-                color: #494949;
-                font-size: 14px;
-                margin-bottom: 10px;
+                color: #717171;
+                font-size: 12px;
+                line-height: 20px;
                 span{
                     color:#aaa;
                     font-size: 14px;
@@ -230,119 +211,5 @@ section{
         }
         }
     }
-    .pics{
-        ul{
-            overflow: scroll;
-            white-space: nowrap;
-            li{
-                margin-right: 6px;
-                height: 120px;
-                display: inline-block;
-            &.video{
-                background-size: 100%;
-                width: 213.33333px;
-                a{
-                position: relative;
-                    height: 100%;
-                    display: block;
-                span{
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    img{
-                    width: 42px;
-                    height: 42px;
-                    margin: -21px 0 0 -21px;
-                    }
-                }
-                }
-            }
-            &.pic{
-                img{
-                        height: 100%;
-                }
-            }
-        }
-        }
-    }
 }
-.tags{
-    li{
-        background: #f5f5f5;
-        border:1px solid #f73e4a;
-        border-radius: 28px;    
-        padding: 2px 14px;
-        margin: 14px 0 0 18px;
-        display: inline-block;
-        a{
-        color: #f73e4a;
-        font-size: 12px;
-        }
-    }
-}
-// 短评
- .comments{
-        li{
-            padding: 15px 18px 15px 0;
-            .desc{
-                a{
-                    img{
-                        width: 36px;
-                        border-radius: 50%;
-                        float: left;
-                        margin-right: 10px;
-                    }
-                }
-                .user-info{
-                    p{
-                    margin-top: 6px;
-                    font-size: 12px;
-                    color: #aaa;
-                    }
-                }
-            }
-            p{
-                padding: 0 0 0 40px;
-                line-height: 22px;
-                color: #494949;
-                font-size: 15px;
-            }
-            .btn-info{
-                margin: 10px 0 0 40px;
-                .praise::before{
-                    content: '';
-                    width: 20px;
-                    height: 20px;
-                    display: inline-block;
-                    vertical-align: middle;
-                    background-image: url(https://img3.doubanio.com/f/talion/7a0756b3b6e67b59ea88653bc0cfa14f61ff219d/pics/card/ic_like_gray.svg)
-                }
-                span{
-                    display: inline-block;
-                    vertical-align: middle;
-                    color: #ccc;
-                    font-size: 14px;
-                    margin-left: 4px;
-                }
-                .more::before{
-                content: '';
-                        width: 20px;
-                        height: 20px;
-                        display: inline-block;
-                        vertical-align: middle;
-                        background-repeat: no-repeat;
-                        background-position: center center;
-                        background-image: url(https://img3.doubanio.com/f/talion/be268c0a1adb577c8dfdcfbe48c818af3983ed62/pics/card/more.svg)
-                }
-            }
-            &.CommentAll{
-                text-align: center;
-                a{
-                color: #42bd56;
-                font-size: 15px;
-                }
-            }
-        }
-
-    }
 </style>
