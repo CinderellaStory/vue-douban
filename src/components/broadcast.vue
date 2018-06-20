@@ -103,8 +103,9 @@ export default {
         a{
           color: #494949;
           .Info{
+            overflow:hidden;
             .avatar{
-              display: inline-block;
+              float:left;
               img{
                 width: 50px;
                 height: 50px;
@@ -113,8 +114,8 @@ export default {
               }
             }
             .detail{
-              display: inline-block;
                 vertical-align: middle;
+                float:left;
                 width: 50%;
               margin-left: 10px;
               h4{
@@ -127,8 +128,8 @@ export default {
               }
             }
             .FloowBtn{
-              display: inline-block;
               color: #fff;
+              float:right;
               background: #f73e4a;
               padding: 4px 18px;
               font-size: 14px;
